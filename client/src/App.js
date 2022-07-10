@@ -24,16 +24,21 @@ function App() {
           {
             setCurrentUser(user)
             setCurrentUserId(user.id)
-
-            fetch('/users/currentUserId')
-            .then(resp => resp.json())
-            .then(setJobs)
           })
       }
     })
   }, [])
 
-  if(!currentUser) return <Signup setCurrentUser = {setCurrentUser} />
+  // useEffect(() =>
+  // {
+  //   fetch(`/users/${currentUserId}/jobs`)
+  //   .then(resp => resp.json())
+  //   .then(setJobs)
+  // }, [])
+
+  // console.log(jobs)
+
+  // if(!currentUser) return <Signup setCurrentUser = {setCurrentUser} />
 
   function handleLogout() 
   {

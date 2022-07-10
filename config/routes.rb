@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :users, only: [:index, :show, :create]
+  resources :users, only: [:show, :create]
   resources :interviews
   resources :jobs
   resources :offers
