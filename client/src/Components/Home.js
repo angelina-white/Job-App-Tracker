@@ -14,8 +14,16 @@ function Home()
     function handleSubmitJobApp(e)
     {
         e.preventDefault()
-        console.log(jobApp)
 
+        setData({
+            dateApplied: jobApp.dateApplied,
+            description: jobApp.description,
+            applicationLinke:"",
+            company_id:"",
+            offer_id:"",
+            status:"",
+            user_id:""
+        })
 
 
         // fetch("/jobs", 

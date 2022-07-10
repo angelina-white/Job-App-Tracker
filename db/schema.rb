@@ -10,15 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_10_210530) do
+ActiveRecord::Schema.define(version: 2022_07_10_211813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "companies", force: :cascade do |t|
-    t.string "name"
-    t.string "companyLink"
-  end
 
   create_table "interviews", force: :cascade do |t|
     t.date "interviewDate"
@@ -31,11 +26,9 @@ ActiveRecord::Schema.define(version: 2022_07_10_210530) do
     t.date "dateApplied"
     t.text "description"
     t.string "applicationLink"
-    t.bigint "company_id", null: false
     t.bigint "offer_id"
     t.string "status"
     t.bigint "user_id"
-    t.index ["company_id"], name: "index_jobs_on_company_id"
     t.index ["offer_id"], name: "index_jobs_on_offer_id"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
@@ -55,7 +48,6 @@ ActiveRecord::Schema.define(version: 2022_07_10_210530) do
   end
 
   add_foreign_key "interviews", "jobs"
-  add_foreign_key "jobs", "companies"
   add_foreign_key "jobs", "offers"
   add_foreign_key "jobs", "users"
 end
