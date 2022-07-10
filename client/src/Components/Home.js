@@ -1,6 +1,8 @@
 import {useState} from "react"
+import Table from 'react-bootstrap/Table';
+import JobItem from "./JobItem"
 
-function Home({ currentUserId })
+function Home({ currentUserId, jobs })
 {
     
     const [jobAppInput, setJobAppInput] = useState(
@@ -37,6 +39,15 @@ function Home({ currentUserId })
         .then(data => console.log(data)) 
     }
 
+    const jobList = jobs.map((item) =>
+    {
+      return (
+        <JobItem item={ item } />
+      )
+    })
+
+    console.log(jobList)
+
     return(
         <div className="home">
             <h2>Home</h2>
@@ -60,6 +71,21 @@ function Home({ currentUserId })
                 </label>
                 <button>Submit</button>
             </form>
+
+            <Table striped bordered hover>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Company</th>
+                        <th>Application Link</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    { jobList }
+                </tbody>
+            </Table>
         </div>
     )
 }

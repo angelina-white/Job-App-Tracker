@@ -36,7 +36,6 @@ function App() {
     .then(data => setJobs(data))
   }, [])
 
-  console.log(jobs)
 
   // if(!currentUser) return <Signup setCurrentUser = {setCurrentUser} />
 
@@ -63,7 +62,7 @@ function App() {
           <li><Link to='interview'>Interview</Link></li>
           <li><Link to='offer'>Offer</Link></li>
         </ul>
-        <Route path="/Home"> <Home currentUserId={ currentUserId }/> </Route>
+        <Route path="/Home"> <Home currentUserId={ currentUserId } jobs={ jobs }/> </Route>
         <Route path="/interview"> <Interview /> </Route>
         <Route path="/offer"> <Offer /> </Route>
     </div>
