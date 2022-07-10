@@ -1,10 +1,9 @@
 import { useState } from "react";
 
-function Signup()
+function Signup({ setCurrentUser })
 {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [currentUser, setCurrentUser] = useState("");
     const [errors, setErrors] = useState("");
 
     function handleSubmit(e) 
