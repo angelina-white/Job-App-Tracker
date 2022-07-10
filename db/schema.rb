@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_10_005110) do
+ActiveRecord::Schema.define(version: 2022_07_10_172338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,11 +77,11 @@ ActiveRecord::Schema.define(version: 2022_07_10_005110) do
     t.integer "ghosted"
   end
 
-  # add_foreign_key "applications", "companies"
-  # add_foreign_key "applications", "statuses"
-  # add_foreign_key "apps", "companies"
-  # add_foreign_key "apps", "offers"
-  # add_foreign_key "apps", "statuses"
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+  end
+
   add_foreign_key "interviews", "jobs"
   add_foreign_key "jobs", "companies"
   add_foreign_key "jobs", "offers"
