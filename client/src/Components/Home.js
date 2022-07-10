@@ -2,7 +2,7 @@ import {useState} from "react"
 import Table from 'react-bootstrap/Table';
 import JobItem from "./JobItem"
 
-function Home({ currentUserId, jobs })
+function Home({ currentUserId, jobs, handleAddJob })
 {
     
     const [jobAppInput, setJobAppInput] = useState(
@@ -36,7 +36,7 @@ function Home({ currentUserId, jobs })
             body: JSON.stringify(jobAppInput)
         })
         .then(resp => resp.json())
-        .then(data => console.log(data)) 
+        .then(data => handleAddJob(data)) 
     }
 
     const jobList = jobs.map((item) =>
@@ -45,8 +45,6 @@ function Home({ currentUserId, jobs })
         <JobItem item={ item } />
       )
     })
-
-    console.log(jobList)
 
     return(
         <div className="home">

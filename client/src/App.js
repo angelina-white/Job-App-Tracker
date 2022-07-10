@@ -51,6 +51,11 @@ function App() {
     setCurrentUser("")
   }
 
+  function handleAddJob(job)
+  {
+    setJobs([job, ...jobs])
+  }
+
   return (
     <div className="App">
       <Signup setCurrentUser = {setCurrentUser} />
@@ -62,7 +67,7 @@ function App() {
           <li><Link to='interview'>Interview</Link></li>
           <li><Link to='offer'>Offer</Link></li>
         </ul>
-        <Route path="/Home"> <Home currentUserId={ currentUserId } jobs={ jobs }/> </Route>
+        <Route path="/Home"> <Home currentUserId={ currentUserId } jobs={ jobs } handleAddJob={ handleAddJob }/> </Route>
         <Route path="/interview"> <Interview /> </Route>
         <Route path="/offer"> <Offer /> </Route>
     </div>
