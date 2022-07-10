@@ -23,10 +23,23 @@ function App() {
 
   if(!currentUser) return <Login setCurrentUser = {setCurrentUser} />
 
+  function handleLogout() 
+  {
+    fetch("/logout", {
+      method: "DELETE",
+    }).then(() => onLogout());
+  }
+
+  function onLogout()
+  {
+    
+  }
+
   return (
     <div className="App">
       <Signup setCurrentUser = {setCurrentUser} />
       <Login setCurrentUser = {setCurrentUser} />
+      <button onClick={handleLogout}>Logout</button>
       <ul className="linkClass">
         <li><Link to='/'>Home</Link></li>
       </ul>
