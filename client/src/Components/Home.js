@@ -2,7 +2,7 @@ import {useState} from "react"
 
 function Home({ currentUserId })
 {
-
+    
     const [jobAppInput, setJobAppInput] = useState(
         {
             dateApplied: "",
@@ -23,8 +23,6 @@ function Home({ currentUserId })
     function handleSubmitJobApp(e)
     {
         e.preventDefault()
-
-        console.log(jobAppInput)
 
         fetch("/jobs", 
         {

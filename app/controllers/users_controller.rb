@@ -11,6 +11,12 @@ class UsersController < ApplicationController
         render json: user, status: :created
     end
 
+    def jobs_index
+        user = User.find(params[:user_id])
+        jobs = user.jobs
+        render json: jobs
+    end
+
     private
 
     def user_params

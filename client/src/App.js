@@ -29,14 +29,14 @@ function App() {
     })
   }, [])
 
-  // useEffect(() =>
-  // {
-  //   fetch(`/users/${currentUserId}/jobs`)
-  //   .then(resp => resp.json())
-  //   .then(setJobs)
-  // }, [])
+  useEffect(() =>
+  {
+    fetch(`/users/${currentUserId}/jobs`)
+    .then(resp => resp.json())
+    .then(data => setJobs(data))
+  }, [])
 
-  // console.log(jobs)
+  console.log(jobs)
 
   // if(!currentUser) return <Signup setCurrentUser = {setCurrentUser} />
 
