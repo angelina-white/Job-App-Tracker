@@ -4,6 +4,7 @@ function Home()
 {
 
     const [jobApp, setJobApp] = useState({dateApplied: "", company: "", applicationLink: "", description:""})
+    const [data, setData] = useState("")
 
     function handleChangeJobApp(e)
     {
@@ -16,6 +17,18 @@ function Home()
         console.log(jobApp)
 
 
+
+        // fetch("/jobs", 
+        // {
+        //     method: 'POST',
+        //     headers: 
+        //     {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(submitOrderObj)
+        // })
+        // .then(resp => resp.json())
+        // .then(data => handleAddOrderItem(data)) 
     }
 
     return(

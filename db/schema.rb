@@ -10,32 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_10_172338) do
+ActiveRecord::Schema.define(version: 2022_07_10_210530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "applications", force: :cascade do |t|
-    t.date "dateApplied"
-    t.string "description"
-    t.string "applicationLink"
-    t.bigint "status_id"
-    t.bigint "company_id"
-    t.index ["company_id"], name: "index_applications_on_company_id"
-    t.index ["status_id"], name: "index_applications_on_status_id"
-  end
-
-  create_table "apps", force: :cascade do |t|
-    t.date "dateApplied"
-    t.text "description"
-    t.string "applicationLink"
-    t.bigint "status_id", null: false
-    t.bigint "company_id", null: false
-    t.bigint "offer_id"
-    t.index ["company_id"], name: "index_apps_on_company_id"
-    t.index ["offer_id"], name: "index_apps_on_offer_id"
-    t.index ["status_id"], name: "index_apps_on_status_id"
-  end
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -53,12 +31,13 @@ ActiveRecord::Schema.define(version: 2022_07_10_172338) do
     t.date "dateApplied"
     t.text "description"
     t.string "applicationLink"
-    t.bigint "status_id", null: false
     t.bigint "company_id", null: false
     t.bigint "offer_id"
+    t.string "status"
+    t.bigint "user_id"
     t.index ["company_id"], name: "index_jobs_on_company_id"
     t.index ["offer_id"], name: "index_jobs_on_offer_id"
-    t.index ["status_id"], name: "index_jobs_on_status_id"
+    t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
   create_table "offers", force: :cascade do |t|
@@ -70,13 +49,6 @@ ActiveRecord::Schema.define(version: 2022_07_10_172338) do
     t.string "positionType"
   end
 
-  create_table "statuses", force: :cascade do |t|
-    t.integer "pending"
-    t.integer "offer"
-    t.integer "rejection"
-    t.integer "ghosted"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -85,5 +57,5 @@ ActiveRecord::Schema.define(version: 2022_07_10_172338) do
   add_foreign_key "interviews", "jobs"
   add_foreign_key "jobs", "companies"
   add_foreign_key "jobs", "offers"
-  add_foreign_key "jobs", "statuses"
+  add_foreign_key "jobs", "users"
 end

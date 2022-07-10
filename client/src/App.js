@@ -23,7 +23,7 @@ function App() {
     })
   }, [])
 
-  if(!currentUser) return <Login setCurrentUser = {setCurrentUser} />
+  if(!currentUser) return <Signup setCurrentUser = {setCurrentUser} />
 
   function handleLogout() 
   {
