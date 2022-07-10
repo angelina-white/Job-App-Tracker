@@ -11,6 +11,7 @@ function App() {
 
   const [currentUser, setCurrentUser] = useState("");
   const [currentUserId, setCurrentUserId] = useState("");
+  const [jobs, setJobs] = useState({});
 
   useEffect(() =>
   {
@@ -23,6 +24,10 @@ function App() {
           {
             setCurrentUser(user)
             setCurrentUserId(user.id)
+
+            fetch('/users/currentUserId')
+            .then(resp => resp.json())
+            .then(setJobs)
           })
       }
     })
