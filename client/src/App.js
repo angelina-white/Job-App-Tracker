@@ -32,7 +32,7 @@ function App() {
 
   function onLogout()
   {
-    
+    setCurrentUser("")
   }
 
   return (
@@ -40,6 +40,7 @@ function App() {
       <Signup setCurrentUser = {setCurrentUser} />
       <Login setCurrentUser = {setCurrentUser} />
       <button onClick={handleLogout}>Logout</button>
+      <h4 id="loggedInUsername">{ currentUser.username }</h4>
       <ul className="linkClass">
         <li><Link to='/'>Home</Link></li>
       </ul>
