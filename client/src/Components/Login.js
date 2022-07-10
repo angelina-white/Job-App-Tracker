@@ -1,19 +1,19 @@
 import { useState } from "react";
 
-function Auth()
+function Login()
 {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [currentUser, setCurrentUser] = useState("");
     const [errors, setErrors] = useState("");
 
-    function handleSubmit(e) 
+    function handleLogin(e) 
     {
         e.preventDefault();
 
         const user = {username, password}
 
-        fetch("/users", 
+        fetch("/login", 
         {
           method: "POST",
           headers: 
@@ -31,14 +31,12 @@ function Auth()
             res.json().then( e => setErrors(Object.entries(e.error).flat()))
           }
         })
-        //   .then((r) => r.json())
-        // //   .then((user) => onLogin(user));
         // .then((user) => console.log(user));
     }
 
     return (
-        <div className="login">
-            <form onSubmit={handleSubmit}>
+        <div classname="login">
+            <form onSubmit={handleLogin}>
                 <input
                   type="text"
                   placeholder="Username"
@@ -51,10 +49,9 @@ function Auth()
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                <button type="submit">Sign Up</button>
+                <button type="submit">Login</button>
             </form>
         </div>
     )
 }
-
-export default Auth
+export default Login

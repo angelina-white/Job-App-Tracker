@@ -11,6 +11,7 @@ Job.delete_all
 Company.delete_all
 Status.delete_all
 Offer.delete_all
+User.delete_all
 
 puts "starting seeding"
 
