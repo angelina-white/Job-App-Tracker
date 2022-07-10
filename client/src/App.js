@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 function App() {
 
   const [currentUser, setCurrentUser] = useState("");
+  const [currentUserId, setCurrentUserId] = useState("");
 
   useEffect(() =>
   {
@@ -18,7 +19,11 @@ function App() {
     {
       if(res.ok)
       {
-        res.json().then(user => setCurrentUser(user))
+        res.json().then(user => 
+          {
+            setCurrentUser(user)
+            setCurrentUserId(user.id)
+          })
       }
     })
   }, [])
@@ -48,7 +53,7 @@ function App() {
           <li><Link to='interview'>Interview</Link></li>
           <li><Link to='offer'>Offer</Link></li>
         </ul>
-        <Route path="/Home"> <Home /> </Route>
+        <Route path="/Home"> <Home currentUserId={ currentUserId }/> </Route>
         <Route path="/interview"> <Interview /> </Route>
         <Route path="/offer"> <Offer /> </Route>
     </div>

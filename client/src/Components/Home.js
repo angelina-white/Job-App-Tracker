@@ -1,42 +1,42 @@
 import {useState} from "react"
 
-function Home()
+function Home({ currentUserId })
 {
 
-    const [jobApp, setJobApp] = useState({dateApplied: "", company: "", applicationLink: "", description:""})
-    const [data, setData] = useState("")
+    const [jobAppInput, setJobAppInput] = useState(
+        {
+            dateApplied: "",
+            description: "",
+            applicationLink: "",
+            offer_id: 1,
+            status: "Pending",
+            user_id: currentUserId,
+            company: ""
+        }
+    )
 
     function handleChangeJobApp(e)
     {
-        setJobApp({...jobApp, [e.target.name]: e.target.value})
+        setJobAppInput({...jobAppInput, [e.target.name]: e.target.value})
     }
 
     function handleSubmitJobApp(e)
     {
         e.preventDefault()
 
-        setData({
-            dateApplied: jobApp.dateApplied,
-            description: jobApp.description,
-            applicationLinke:"",
-            company_id:"",
-            offer_id:"",
-            status:"",
-            user_id:""
+        console.log(jobAppInput)
+
+        fetch("/jobs", 
+        {
+            method: 'POST',
+            headers: 
+            {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(jobAppInput)
         })
-
-
-        // fetch("/jobs", 
-        // {
-        //     method: 'POST',
-        //     headers: 
-        //     {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(submitOrderObj)
-        // })
-        // .then(resp => resp.json())
-        // .then(data => handleAddOrderItem(data)) 
+        .then(resp => resp.json())
+        .then(data => console.log(data)) 
     }
 
     return(
