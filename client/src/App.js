@@ -2,6 +2,8 @@ import './App.css';
 import Signup from './Components/Signup';
 import Login from './Components/Login';
 import Home from './Components/Home';
+import Interview from './Components/Interview';
+import Offer from './Components/Offer';
 import { Link, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -43,8 +45,12 @@ function App() {
       <h4 id="loggedInUsername">{ currentUser.username }</h4>
       <ul className="linkClass">
         <li><Link to='/'>Home</Link></li>
+        <li><Link to='interview'>Interview</Link></li>
+        <li><Link to='offer'>Offer</Link></li>
       </ul>
       <Route path="/"> <Home /> </Route>
+      <Route path="/interview"> <Interview /> </Route>
+      <Route path="/offer"> <Offer /> </Route>
     </div>
   );
 }
