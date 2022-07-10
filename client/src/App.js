@@ -43,14 +43,14 @@ function App() {
       <Login setCurrentUser = {setCurrentUser} />
       <button onClick={handleLogout}>Logout</button>
       <h4 id="loggedInUsername">{ currentUser.username }</h4>
-      <ul className="linkClass">
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='interview'>Interview</Link></li>
-        <li><Link to='offer'>Offer</Link></li>
-      </ul>
-      <Route path="/"> <Home /> </Route>
-      <Route path="/interview"> <Interview /> </Route>
-      <Route path="/offer"> <Offer /> </Route>
+        <ul className="linkClass">
+          <li><Link to='home'>Home</Link></li>
+          <li><Link to='interview'>Interview</Link></li>
+          <li><Link to='offer'>Offer</Link></li>
+        </ul>
+        <Route path="/Home"> <Home /> </Route>
+        <Route path="/interview"> <Interview /> </Route>
+        <Route path="/offer"> <Offer /> </Route>
     </div>
   );
 }
