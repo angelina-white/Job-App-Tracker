@@ -1,2 +1,3 @@
 class InterviewsController < ApplicationController
+
 end
