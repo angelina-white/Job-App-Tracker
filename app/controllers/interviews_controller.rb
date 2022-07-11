@@ -8,6 +8,6 @@ class InterviewsController < ApplicationController
     private
 
     def interview_params
-        params.permit(:interviewDate, :interviewTime)
+        params.permit(:interviewDate, :interviewTime, :job_id)
     end
 end

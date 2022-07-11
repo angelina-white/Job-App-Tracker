@@ -53,17 +53,16 @@ function Home({ currentUserId, jobList, handleAddJob })
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const [interview, setInterview] = useState({interviewDate:"", interviewTime:"", job_id: 1})
+    const [interview, setInterview] = useState({interviewDate:"", interviewTime:"", job_id: ""})
     function handleChangeInterview(e)
     {
         setInterview({...interview, [e.target.name]: e.target.value})
+        console.log(interview)
     }
 
     function handleAddInterview(e)
     {
         e.preventDefault()
-
-        console.log(interview)
 
         fetch("/interviews", 
         {
@@ -125,6 +124,10 @@ function Home({ currentUserId, jobList, handleAddJob })
                             Time:
                             <input name="interviewTime" type="text" placeholder="Enter..." onChange={handleChangeInterview}/>
                         </label>
+                        <label>
+                            Job ID:
+                            <input name="job_id" type="text" placeholder="Enter..." onChange={handleChangeInterview}/>
+                        </label>
                     </form>
                 </Modal.Body>
                 <Modal.Footer>
@@ -140,6 +143,7 @@ function Home({ currentUserId, jobList, handleAddJob })
             <Table striped bordered hover>
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Date</th>
                         <th>Company</th>
                         <th>Application Link</th>
