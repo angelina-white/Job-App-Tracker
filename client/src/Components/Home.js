@@ -1,6 +1,8 @@
 import {useState} from "react"
-import Table from 'react-bootstrap/Table';
 import JobItem from "./JobItem"
+import Table from 'react-bootstrap/Table';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 
 function Home({ currentUserId, jobs, handleAddJob })
 {
@@ -39,12 +41,45 @@ function Home({ currentUserId, jobs, handleAddJob })
         .then(data => handleAddJob(data)) 
     }
 
-    const jobList = jobs.map((item) =>
+    // const jobList = jobs.map((item) =>
+    // {
+    //   return (
+    //     <JobItem item={ item } />
+    //   )
+    // })
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    const [interview, setInterview] = useState({interviewDate:"", interviewTime:"", job_id: 1})
+    function handleChangeInterview(e)
     {
-      return (
-        <JobItem item={ item } />
-      )
-    })
+        setInterview({...interview, [e.target.name]: e.target.value})
+    }
+
+    function handleAddInterview(e)
+    {
+        e.preventDefault()
+
+        fetch("/interviews", 
+        {
+            method: 'POST',
+            headers: 
+            {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(interview)
+        })
+        .then(resp => resp.json())
+        .then(data => console.log(data)) 
+    }
+
+    function test(e)
+    {
+        console.log(e)
+    }
 
     return(
         <div className="home">
@@ -70,6 +105,36 @@ function Home({ currentUserId, jobs, handleAddJob })
                 <button>Submit</button>
             </form>
 
+            <Button variant="primary" onClick={handleShow}>
+                Add Interview
+            </Button>
+
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Add Interview</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <form>
+                        <label>
+                            Date:
+                            <input name="interviewDate" type="text" placeholder="Enter..." onChange={handleChangeInterview}/>
+                        </label>
+                        <label>
+                            Time:
+                            <input name="interviewTime" type="text" placeholder="Enter..." onChange={handleChangeInterview}/>
+                        </label>
+                    </form>
+                </Modal.Body>
+                <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                    Close
+                </Button>
+                <Button variant="primary" onClick={handleAddInterview}>
+                    Add
+                </Button>
+                </Modal.Footer>
+            </Modal>
+
             <Table striped bordered hover>
                 <thead>
                     <tr>
@@ -81,7 +146,7 @@ function Home({ currentUserId, jobs, handleAddJob })
                     </tr>
                 </thead>
                 <tbody>
-                    { jobList }
+                    {/* { jobList } */}
                 </tbody>
             </Table>
         </div>

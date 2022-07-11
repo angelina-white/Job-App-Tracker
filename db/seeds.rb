@@ -12,7 +12,7 @@ puts "seeding offers"
 u1 = User.create(id: 1, username: "ang", password_digest: "123")
 
 puts "seeding jobs"
-Job.create(dateApplied: "07/08/22", description: "do go code for hotel homes", applicationLink:"www.fakeapplink1.com", offer_id: o0.id, status: "pending", user_id: 1, company: "Airbnb")
+Job.create(id: 1, dateApplied: "07/08/22", description: "do go code for hotel homes", applicationLink:"www.fakeapplink1.com", offer_id: o0.id, status: "pending", user_id: 1, company: "Airbnb")
 Job.create(dateApplied: "07/09/22", description: "do code for music", applicationLink:"www.fakeapplink2.com", offer_id: o0.id, status: "pending", user_id: 1, company: "Spotify")
 Job.create(dateApplied: "07/10/22", description: "do code for fast fashion", applicationLink:"www.fakeapplink3.com", offer_id: o0.id, status: "pending", user_id: 1, company: "Aritizia")
 Job.create(dateApplied: "07/11/22", description: "do code for athletic wear", applicationLink:"www.fakeapplink4.com", offer_id: o0.id, status: "pending", user_id: 1, company: "Lululemon")
