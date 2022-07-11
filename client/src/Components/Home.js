@@ -4,7 +4,7 @@ import Table from 'react-bootstrap/Table';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
-function Home({ currentUserId, jobList, handleAddJob })
+function Home({ currentUserId, jobList, handleAddJob, handleAddInterview })
 {
 
     const [jobAppInput, setJobAppInput] = useState(
@@ -63,22 +63,21 @@ function Home({ currentUserId, jobList, handleAddJob })
     {
         e.preventDefault()
 
-        // fetch("/interviews", 
-        // {
-        //     method: 'POST',
-        //     headers: 
-        //     {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(interview)
-        // })
-        // .then(resp => resp.json())
-        // .then(data => handleAddInterview(data)) 
-    }
-
-    function test(e)
-    {
-        console.log(e)
+        fetch("/interviews", 
+        {
+            method: 'POST',
+            headers: 
+            {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(interview)
+        })
+        .then(resp => resp.json())
+        .then(data => 
+        {
+            handleAddInterview(data)
+            setShow(false)
+        }) 
     }
 
     return(

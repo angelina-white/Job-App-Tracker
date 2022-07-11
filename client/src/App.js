@@ -71,10 +71,10 @@ function App() {
     setJobList([item, ...jobList])
   }
 
-  // function handleAddInterview(item)
-  // {
-  //   setInterviewList([item, ...interviewList])
-  // }
+  function handleAddInterview(item)
+  {
+    setInterviewList([item, ...interviewList])
+  }
 
   return (
     <div className="App">
@@ -107,7 +107,7 @@ function App() {
                 <Offer />
               </Route>
               <Route path="/">
-                <Home currentUserId={ currentUserId } jobList={ jobList } handleAddJob={ handleAddJob }/>
+                <Home currentUserId={ currentUserId } jobList={ jobList } handleAddJob={ handleAddJob } handleAddInterview={ handleAddInterview }/>
               </Route>
             </Switch>
           </div>
