@@ -1,8 +1,16 @@
 import Table from 'react-bootstrap/Table';
 import OfferItem from "./OfferItem";
 
-function Offer()
+function Offer({ offerList })
 {
+
+    const displayList = offerList.map((item) =>
+    {
+        return (
+            <OfferItem item={ item } />
+        )
+    })
+
     return (
         <div className="offer">
             <h2>Offer</h2>
@@ -19,7 +27,7 @@ function Offer()
                     </tr>
                 </thead>
                 <tbody>
-                    {/* { displayList } */}
+                    { displayList }
                 </tbody>
             </Table>
         </div>

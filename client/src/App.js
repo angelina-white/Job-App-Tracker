@@ -57,7 +57,7 @@ function App() {
     // fetch(`/users/${currentUserId}/interviews`)
     fetch(`/users/16/offers`)
     .then(resp => resp.json())
-    .then(data => console.log(data))
+    .then(data => setOfferList(data))
   }, [])
 
   // if(!currentUser) return <Signup setCurrentUser = {setCurrentUser} />
@@ -113,7 +113,7 @@ function App() {
                 <Interview interviewList={ interviewList } />
               </Route>
               <Route path="/offer">
-                <Offer />
+                <Offer offerList={ offerList }/>
               </Route>
               <Route path="/">
                 <Home currentUserId={ currentUserId } jobList={ jobList } handleAddJob={ handleAddJob } handleAddInterview={ handleAddInterview }/>

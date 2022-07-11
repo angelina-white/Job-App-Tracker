@@ -1,15 +1,15 @@
 function OfferItem({ item })
 {
-    // const {interviewDate, interviewTime, job} = item
+    const {salary, medical, pto, sickLeave, bonus, positionType } = item
 
     return (
         <tr>
-            <td>item</td>
-            <td>item</td>
-            <td>item</td>
-            <td>item</td>
-            <td>item</td>
-            <td>item</td>
+            <td>{ salary }</td>
+            <td>{ medical }</td>
+            <td>{ pto }</td>
+            <td>{ sickLeave }</td>
+            <td>{ bonus }</td>
+            <td>{ positionType }</td>
         </tr>
     )
 }
