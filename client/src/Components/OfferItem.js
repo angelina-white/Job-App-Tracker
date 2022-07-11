@@ -5,7 +5,6 @@ function OfferItem({ item })
     return (
         <tr>
             <td>{ jobs[0].company}</td>
-            <td>idk</td>
             <td>{ salary }</td>
             <td>{ medical }</td>
             <td>{ pto }</td>
