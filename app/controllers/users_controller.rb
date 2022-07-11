@@ -23,6 +23,12 @@ class UsersController < ApplicationController
         render json: interviews
     end
 
+    def offers_index
+        user = User.find(params[:user_id])
+        offers = user.offers
+        render json: offers
+    end
+
     private
 
     def user_params

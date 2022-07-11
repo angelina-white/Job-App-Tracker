@@ -123,8 +123,18 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview })
         }) 
 
 
-        const jobPatchData = jobList.find((item) => item.id == offer.job_id)
-        jobPatchData.offer = offerInfo
+        const findJob = jobList.find((item) => item.id == offer.job_id)
+        const jobPatchData = 
+        {
+            dateApplied: findJob.dateApplied,
+            description: findJob.description,
+            applicationLink: findJob.applicationLink,
+            offer_id: offerInfo.id,
+            status: findJob.status,
+            user_id: findJob.user_id,
+            company: findJob.company
+        }
+
         console.log(jobPatchData)
 
         // put patch request her

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   get "/users/:user_id/jobs", to: "users#jobs_index"
   get "/users/:user_id/interviews", to: "users#interviews_index"
+  get "/users/:user_id/offers", to: "users#offers_index"
 
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

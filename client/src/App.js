@@ -18,6 +18,7 @@ function App() {
   const [currentUserId, setCurrentUserId] = useState("");
   const [jobList, setJobList] = useState([]);
   const [interviewList, setInterviewList] = useState([]);
+  const [offerList, setOfferList] = useState([]);
 
   useEffect(() =>
   {
@@ -49,6 +50,14 @@ function App() {
     fetch(`/users/16/interviews`)
     .then(resp => resp.json())
     .then(data => setInterviewList(data))
+  }, [])
+
+  useEffect(() =>
+  {
+    // fetch(`/users/${currentUserId}/interviews`)
+    fetch(`/users/16/offers`)
+    .then(resp => resp.json())
+    .then(data => console.log(data))
   }, [])
 
   // if(!currentUser) return <Signup setCurrentUser = {setCurrentUser} />

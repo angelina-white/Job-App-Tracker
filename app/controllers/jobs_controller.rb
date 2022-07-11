@@ -17,7 +17,7 @@ class JobsController < ApplicationController
 
     def update
         job = Job.find(params[:id])
-        job.update(job_params)
+        job.update!(job_params)
         render json: job, status: :ok
     end
 
