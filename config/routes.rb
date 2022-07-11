@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :users, only: [:create]
   resources :interviews, only: [:create]
   resources :jobs
-  resources :offers
+  resources :offers, only: [:create]
   resources :companies, only: [:index, :show, :create]
   resources :statuses, only: [:index, :show]
 

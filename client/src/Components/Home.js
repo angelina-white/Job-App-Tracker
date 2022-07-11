@@ -48,10 +48,9 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview })
       )
     })
 
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const [showInterview, setShowInterview] = useState(false);
+    const handleCloseInterview = () => setShowInterview(false);
+    const handleShowInterview = () => setShowInterview(true);
 
     const [interview, setInterview] = useState({interviewDate:"", interviewTime:"", job_id: ""})
     function handleChangeInterview(e)
@@ -76,8 +75,70 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview })
         .then(data => 
         {
             handleAddInterview(data)
-            setShow(false)
+            setShowInterview(false)
         }) 
+    }
+
+    const [showOffer, setShowOffer] = useState(false);
+    const handleCloseOffer = () => setShowOffer(false);
+    const handleShowOffer = () => setShowOffer(true);
+    const [offerID, setOfferID] = useState("");
+    const [offerInfo, setOfferInfo] = useState("");
+
+    const [offer, setOffer] = useState({salary:0, medical:"", pto:0, sickLeave:0, bonus:0, positionType:"", job_id:""})
+    function handleChangeOffer(e)
+    {
+        setOffer({...offer, [e.target.name]: e.target.value})
+    }
+
+    function handleSubmitOffer(e)
+    {
+        e.preventDefault()
+
+        const offerData = 
+        {
+            salary: offer.salary,
+            medical: offer.medical,
+            pto: offer.pto,
+            sickLeave: offer.sickLeave,
+            bonus: offer.bonus,
+            positionType: offer.positionType
+        }
+
+        fetch("/offers", 
+        {
+            method: 'POST',
+            headers: 
+            {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(offerData)
+        })
+        .then(resp => resp.json())
+        .then(data => 
+        {
+            setOfferInfo(data)
+            // handleAddOffer(data)
+            // setShowOffer(false)
+        }) 
+
+
+        const jobPatchData = jobList.find((item) => item.id == offer.job_id)
+        jobPatchData.offer = offerInfo
+        console.log(jobPatchData)
+
+        // put patch request her
+        fetch(`/jobs/${offer.job_id}`,
+        {
+            method: "PATCH",
+            headers:
+            {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(jobPatchData)
+        })
+        .then(resp => resp.json())
+        .then(data => console.log(data))
     }
 
     return(
@@ -104,35 +165,83 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview })
                 <button>Submit</button>
             </form>
 
-            <Button variant="primary" onClick={handleShow}>
+            <Button variant="primary" onClick={handleShowInterview}>
                 Add Interview
             </Button>
-
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={showInterview} onHide={handleCloseInterview}>
                 <Modal.Header closeButton>
                     <Modal.Title>Add Interview</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <form>
                         <label>
-                            Date:
-                            <input name="interviewDate" type="text" placeholder="Enter..." onChange={handleChangeInterview}/>
+                                Date:
+                                <input name="interviewDate" type="text" placeholder="Enter..." onChange={handleChangeInterview}/>
+                            </label>
+                            <label>
+                                Time:
+                                <input name="interviewTime" type="text" placeholder="Enter..." onChange={handleChangeInterview}/>
+                            </label>
+                            <label>
+                                Job ID:
+                                <input name="job_id" type="text" placeholder="Enter..." onChange={handleChangeInterview}/>
+                            </label>
+                    </form>
+                </Modal.Body>
+                <Modal.Footer>
+                <Button variant="secondary" onClick={handleCloseInterview}>
+                    Close
+                </Button>
+                <Button variant="primary" onClick={handleSubmitInterview}>
+                    Add
+                </Button>
+                </Modal.Footer>
+            </Modal>
+
+            <Button variant="primary" onClick={handleShowOffer}>
+                Add Offer
+            </Button>
+            <Modal show={showOffer} onHide={handleCloseOffer}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Add Offer</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <form>
+                        <label>
+                            Salary:
+                            <input name="salary" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
                         </label>
                         <label>
-                            Time:
-                            <input name="interviewTime" type="text" placeholder="Enter..." onChange={handleChangeInterview}/>
+                            Medical:
+                            <input name="medical" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
+                        </label>
+                        <label>
+                            Vacation days:
+                            <input name="pto" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
+                        </label>
+                        <label>
+                            Sick leave:
+                            <input name="sickLeave" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
+                        </label>
+                        <label>
+                            Bonus:
+                            <input name="bonus" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
+                        </label>
+                        <label>
+                            Position type:
+                            <input name="positionType" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
                         </label>
                         <label>
                             Job ID:
-                            <input name="job_id" type="text" placeholder="Enter..." onChange={handleChangeInterview}/>
+                            <input name="job_id" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
                         </label>
                     </form>
                 </Modal.Body>
                 <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
+                <Button variant="secondary" onClick={handleCloseOffer}>
                     Close
                 </Button>
-                <Button variant="primary" onClick={handleSubmitInterview}>
+                <Button variant="primary" onClick={handleSubmitOffer}>
                     Add
                 </Button>
                 </Modal.Footer>
