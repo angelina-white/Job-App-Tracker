@@ -1,19 +1,17 @@
-function JobItem({ item })
+function JobItem({ item, deleteJob })
 {
 
-    const {id, company, dateApplied, applicationLink, description, status} = item
+    const {id, company, dateApplied, applicationLink, description, status } = item
 
     function handleDelete(e)
     {
         const jobId = parseInt(e.target.value)
 
-        console.log(jobId)
-
         fetch(`/jobs/${jobId}`, {
             method: "DELETE",
           })
             .then((res) => res.json())
-            .then((data) => console.log("tis bye"));
+            .then((data) => deleteJob(data));
     }
 
     return (

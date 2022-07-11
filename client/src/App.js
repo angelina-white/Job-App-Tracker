@@ -85,6 +85,12 @@ function App() {
     setInterviewList([item, ...interviewList])
   }
 
+  function deleteJob(job)
+  {
+    const filteredListing = jobList.filter(item => item.id !== job)
+    setJobList(filteredListing)
+  }
+
   return (
     <div className="App">
       <Signup setCurrentUser = {setCurrentUser} />
@@ -116,7 +122,7 @@ function App() {
                 <Offer offerList={ offerList }/>
               </Route>
               <Route path="/">
-                <Home currentUserId={ currentUserId } jobList={ jobList } handleAddJob={ handleAddJob } handleAddInterview={ handleAddInterview }/>
+                <Home currentUserId={ currentUserId } jobList={ jobList } handleAddJob={ handleAddJob } handleAddInterview={ handleAddInterview } deleteJob={ deleteJob }/>
               </Route>
             </Switch>
           </div>
