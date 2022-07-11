@@ -135,8 +135,6 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview })
             company: findJob.company
         }
 
-        console.log(jobPatchData)
-
         // put patch request her
         fetch(`/jobs/${offer.job_id}`,
         {
@@ -266,6 +264,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview })
                         <th>Application Link</th>
                         <th>Description</th>
                         <th>Status</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
