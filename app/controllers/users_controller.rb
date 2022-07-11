@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     def interviews_index
         user = User.find(params[:user_id])
         interviews = user.interviews
-        render json: interviews, serializer: InterviewWithCompanySerializer
+        render json: interviews
     end
 
     private

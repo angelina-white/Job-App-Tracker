@@ -4,8 +4,6 @@ import InterviewItem from "./InterviewItem";
 function Interview({ interviewList })
 {
 
-    console.log(interviewList)
-
     const displayList = interviewList.map((item) =>
     {
         return (

@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 
 function Home({ currentUserId, jobList, handleAddJob })
 {
-    
+
     const [jobAppInput, setJobAppInput] = useState(
         {
             dateApplied: "",
@@ -57,24 +57,23 @@ function Home({ currentUserId, jobList, handleAddJob })
     function handleChangeInterview(e)
     {
         setInterview({...interview, [e.target.name]: e.target.value})
-        console.log(interview)
     }
 
-    function handleAddInterview(e)
+    function handleSubmitInterview(e)
     {
         e.preventDefault()
 
-        fetch("/interviews", 
-        {
-            method: 'POST',
-            headers: 
-            {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(interview)
-        })
-        .then(resp => resp.json())
-        .then(data => console.log(data)) 
+        // fetch("/interviews", 
+        // {
+        //     method: 'POST',
+        //     headers: 
+        //     {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(interview)
+        // })
+        // .then(resp => resp.json())
+        // .then(data => handleAddInterview(data)) 
     }
 
     function test(e)
@@ -134,7 +133,7 @@ function Home({ currentUserId, jobList, handleAddJob })
                 <Button variant="secondary" onClick={handleClose}>
                     Close
                 </Button>
-                <Button variant="primary" onClick={handleAddInterview}>
+                <Button variant="primary" onClick={handleSubmitInterview}>
                     Add
                 </Button>
                 </Modal.Footer>

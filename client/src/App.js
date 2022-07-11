@@ -63,12 +63,18 @@ function App() {
   function onLogout()
   {
     setCurrentUser("")
+    // setJobList([])
   }
 
   function handleAddJob(item)
   {
     setJobList([item, ...jobList])
   }
+
+  // function handleAddInterview(item)
+  // {
+  //   setInterviewList([item, ...interviewList])
+  // }
 
   return (
     <div className="App">
@@ -94,7 +100,8 @@ function App() {
 
             <Switch>
               <Route path="/interview">
-                <Interview interviewList={ interviewList }/>
+                {/* <Interview interviewList={ interviewList } handleAddInterview={ handleAddInterview }/> */}
+                <Interview interviewList={ interviewList } />
               </Route>
               <Route path="/offer">
                 <Offer />
