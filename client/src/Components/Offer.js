@@ -18,6 +18,7 @@ function Offer({ offerList })
             <Table striped bordered hover>
                 <thead>
                     <tr>
+                        <th>Company</th>
                         <th>Salary</th>
                         <th>Position Type</th>
                         <th>Medical</th>
