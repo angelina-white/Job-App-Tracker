@@ -4,7 +4,7 @@ import Table from 'react-bootstrap/Table';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
-function Home({ currentUserId, jobs, handleAddJob })
+function Home({ currentUserId, jobList, handleAddJob })
 {
     
     const [jobAppInput, setJobAppInput] = useState(
@@ -41,12 +41,12 @@ function Home({ currentUserId, jobs, handleAddJob })
         .then(data => handleAddJob(data)) 
     }
 
-    // const jobList = jobs.map((item) =>
-    // {
-    //   return (
-    //     <JobItem item={ item } />
-    //   )
-    // })
+    const displayList = jobList.map((item) =>
+    {
+      return (
+        <JobItem item={ item } />
+      )
+    })
 
     const [show, setShow] = useState(false);
 
@@ -62,6 +62,8 @@ function Home({ currentUserId, jobs, handleAddJob })
     function handleAddInterview(e)
     {
         e.preventDefault()
+
+        console.log(interview)
 
         fetch("/interviews", 
         {
@@ -146,7 +148,7 @@ function Home({ currentUserId, jobs, handleAddJob })
                     </tr>
                 </thead>
                 <tbody>
-                    {/* { jobList } */}
+                    { displayList }
                 </tbody>
             </Table>
         </div>

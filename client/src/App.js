@@ -16,7 +16,7 @@ function App() {
 
   const [currentUser, setCurrentUser] = useState("");
   const [currentUserId, setCurrentUserId] = useState("");
-  const [jobs, setJobs] = useState({});
+  const [jobList, setJobList] = useState([]);
 
   useEffect(() =>
   {
@@ -37,10 +37,12 @@ function App() {
   useEffect(() =>
   {
     // fetch(`/users/${currentUserId}/jobs`)
-    fetch(`/users/14/jobs`)
+    fetch(`/users/16/jobs`)
     .then(resp => resp.json())
-    .then(data => setJobs(data))
+    .then(data => setJobList(data))
   }, [])
+
+  console.log(jobList)
 
 
   // if(!currentUser) return <Signup setCurrentUser = {setCurrentUser} />
@@ -57,9 +59,9 @@ function App() {
     setCurrentUser("")
   }
 
-  function handleAddJob(job)
+  function handleAddJob(item)
   {
-    setJobs([job, ...jobs])
+    setJobList([item, ...jobList])
   }
 
   return (
@@ -68,17 +70,6 @@ function App() {
       <Login setCurrentUser = {setCurrentUser} />
       <button onClick={handleLogout}>Logout</button>
       <h4 id="loggedInUsername">{ currentUser.username }</h4>
-        {/* <ul className="linkClass">
-            <li><Link to='home'>Home</Link></li>
-            <li><Link to='interview'>Interview</Link></li>
-            <li><Link to='offer'>Offer</Link></li>
-          </ul>
-          <Routes>
-            <Route path="/home"> <Home currentUserId={ currentUserId } jobs={ jobs } handleAddJob={ handleAddJob }/> </Route>
-            <Route path="/interview"> <Interview /> </Route>
-            <Route path="/offer"> <Offer /> </Route>
-          </Routes> */}
-
         <Router>
           <div>
             <nav>
@@ -95,8 +86,6 @@ function App() {
               </ul>
             </nav>
 
-            {/* A <Switch> looks through its children <Route>s and
-                renders the first one that matches the current URL. */}
             <Switch>
               <Route path="/interview">
                 <Interview />
@@ -105,7 +94,7 @@ function App() {
                 <Offer />
               </Route>
               <Route path="/">
-                <Home />
+                <Home currentUserId={ currentUserId } jobList={ jobList } handleAddJob={ handleAddJob }/>
               </Route>
             </Switch>
           </div>
