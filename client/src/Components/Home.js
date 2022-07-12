@@ -51,8 +51,8 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
     const [showInterview, setShowInterview] = useState(false);
     const handleCloseInterview = () => setShowInterview(false);
     const handleShowInterview = () => setShowInterview(true);
-
     const [interview, setInterview] = useState({interviewDate:"", interviewTime:"", job_id: ""})
+    
     function handleChangeInterview(e)
     {
         setInterview({...interview, [e.target.name]: e.target.value})
@@ -82,9 +82,8 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
     const [showOffer, setShowOffer] = useState(false);
     const handleCloseOffer = () => setShowOffer(false);
     const handleShowOffer = () => setShowOffer(true);
-    const [offerInfo, setOfferInfo] = useState("");
-
     const [offer, setOffer] = useState({salary:0, medical:"", pto:0, sickLeave:0, bonus:0, positionType:"", job_id:""})
+    
     function handleChangeOffer(e)
     {
         setOffer({...offer, [e.target.name]: e.target.value})
@@ -260,7 +259,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
                         <th>Application Link</th>
                         <th>Description</th>
                         <th>Status</th>
-                        <th></th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>

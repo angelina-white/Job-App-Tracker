@@ -1,11 +1,7 @@
-import Table from 'react-bootstrap/Table';
 import OfferItem from "./OfferItem";
 
 function Offer({ offerList })
 {
-
-    console.log(offerList)
-
     const displayList = offerList.map((item) =>
     {
         return (
