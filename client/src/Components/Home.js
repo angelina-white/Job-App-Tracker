@@ -4,7 +4,7 @@ import Table from 'react-bootstrap/Table';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
-function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, deleteJob })
+function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, deleteJob, handleJobPatch })
 {
     const [jobAppInput, setJobAppInput] = useState(
         {
@@ -44,7 +44,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
     const displayList = jobList.map((item) =>
     {
       return (
-        <JobItem item={ item } deleteJob={ deleteJob }/>
+        <JobItem item={ item } deleteJob={ deleteJob } handleJobPatch={ handleJobPatch }/>
       )
     })
 

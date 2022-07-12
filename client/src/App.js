@@ -91,6 +91,18 @@ function App() {
     setJobList(filteredListing)
   }
 
+  function handleJobPatch(job)
+  {
+    const newListing = jobList.map((item) =>
+    {
+      if (item.id == job.id)
+        return job
+      else
+        return item
+    })
+    setJobList(newListing)
+  }
+
   return (
     <div className="App">
       <Signup setCurrentUser = {setCurrentUser} />
@@ -122,7 +134,7 @@ function App() {
                 <Offer offerList={ offerList }/>
               </Route>
               <Route path="/">
-                <Home currentUserId={ currentUserId } jobList={ jobList } handleAddJob={ handleAddJob } handleAddInterview={ handleAddInterview } deleteJob={ deleteJob }/>
+                <Home currentUserId={ currentUserId } jobList={ jobList } handleAddJob={ handleAddJob } handleAddInterview={ handleAddInterview } deleteJob={ deleteJob } handleJobPatch={ handleJobPatch }/>
               </Route>
             </Switch>
           </div>
