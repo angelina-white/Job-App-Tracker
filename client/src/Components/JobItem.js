@@ -90,10 +90,17 @@ function JobItem({ item, deleteJob, handleJobPatch })
             <td>{ isEdit ? <input value={ newDescription } onChange={ handleDescription }/> : description }</td>
             <td>{ isEdit ? <input value={ newStatus } onChange={ handleStatus }/> : status }</td>
             <td>
-                <button value={ id } onClick={ handleDelete }>Delete</button>
                 { isEdit ? 
-                <button onClick={ handleSubmit }>Submit</button> :
-                <button value={ id } onClick={ handleEdit }>Edit</button> }
+                    <div>
+                        <button onClick={ handleSubmit }>Submit</button>
+                        <button value={ id } onClick={ handleEdit }>Unedit</button>      
+                        <button value={ id } onClick={ handleDelete }>Delete</button>     
+                    </div> :
+                    <div>
+                        <button value={ id } onClick={ handleEdit }>Edit</button> 
+                        <button value={ id } onClick={ handleDelete }>Delete</button>
+                    </div>
+                }
             </td>
         </tr>
     )

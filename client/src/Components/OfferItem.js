@@ -6,15 +6,6 @@ function OfferItem({ item })
     const {salary, medical, pto, sickLeave, bonus, positionType, jobs } = item
 
     return (
-        // <tr>
-        //     <td>{ jobs[0].company}</td>
-        //     <td>{ salary }</td>
-        //     <td>{ medical }</td>
-        //     <td>{ pto }</td>
-        //     <td>{ sickLeave }</td>
-        //     <td>{ bonus }</td>
-        //     <td>{ positionType }</td>
-        // </tr>
         <div>
             <Card style={{ width: '18rem' }}>
                 <Card.Header>{ jobs[0].company }</Card.Header>
@@ -27,7 +18,6 @@ function OfferItem({ item })
                     <ListGroup.Item>Bonus: { bonus }</ListGroup.Item>
                 </ListGroup>
             </Card>
-
         </div>
     )
 }

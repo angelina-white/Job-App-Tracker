@@ -4,7 +4,7 @@ import Table from 'react-bootstrap/Table';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
-function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, deleteJob, handleJobPatch })
+function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, deleteJob, handleJobPatch, handleAddOffer })
 {
 
     const [jobAppInput, setJobAppInput] = useState(
@@ -18,7 +18,6 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
             company: ""
         }
     )
-
 
     function handleChangeJobApp(e)
     {
@@ -120,7 +119,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
         .then(data => 
         {
             setOfferInfo(data)
-            // handleAddOffer(data)
+            handleAddOffer(data)
             setShowOffer(false)
         }) 
 
@@ -189,11 +188,11 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
                     <form>
                         <label>
                                 Date:
-                                <input name="interviewDate" type="text" placeholder="Enter..." onChange={handleChangeInterview}/>
+                                <input name="interviewDate" type="text" placeholder="yyyy/mm/dd" onChange={handleChangeInterview}/>
                             </label>
                             <label>
                                 Time:
-                                <input name="interviewTime" type="text" placeholder="Enter..." onChange={handleChangeInterview}/>
+                                <input name="interviewTime" type="text" placeholder="hh:mm" onChange={handleChangeInterview}/>
                             </label>
                             <label>
                                 Job ID:

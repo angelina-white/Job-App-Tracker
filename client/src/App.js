@@ -3,18 +3,12 @@ import Home from './Components/Home';
 import HomeLogin from './Components/HomeLogin';
 import Interview from './Components/Interview';
 import Offer from './Components/Offer';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function App() {
 
   const [currentUser, setCurrentUser] = useState("");
-  const [currentUserId, setCurrentUserId] = useState("");
   const [jobList, setJobList] = useState([]);
   const [interviewList, setInterviewList] = useState([]);
   const [offerList, setOfferList] = useState([]);
@@ -29,37 +23,22 @@ function App() {
         res.json().then(user => 
         {
           setCurrentUser(user)
-          setCurrentUserId(user.id)
+
+          fetch(`/users/${user.id}/jobs`)
+          .then(resp => resp.json())
+          .then(data => setJobList(data))
+
+          fetch(`/users/${user.id}/interviews`)
+          .then(resp => resp.json())
+          .then(data => setInterviewList(data))
+
+          fetch(`/users/${user.id}/offers`)
+          .then(resp => resp.json())
+          .then(data => setOfferList(data))
         })
       }
     })
   }, [])
-
-  useEffect(() =>
-  {
-    // fetch(`/users/${currentUserId}/jobs`)
-    fetch(`/users/18/jobs`)
-    .then(resp => resp.json())
-    .then(data => setJobList(data))
-  }, [])
-
-  // useEffect(() =>
-  // {
-  //   // fetch(`/users/${currentUserId}/interviews`)
-  //   fetch(`/users/18/interviews`)
-  //   .then(resp => resp.json())
-  //   .then(data => setInterviewList(data))
-  // }, [])
-
-  useEffect(() =>
-  {
-    // fetch(`/users/${currentUserId}/offers`)
-    fetch(`/users/18/offers`)
-    .then(resp => resp.json())
-    .then(data => setOfferList(data))
-  }, [])
-
-  // console.log(offerList)
 
   if(!currentUser) return <HomeLogin setCurrentUser = {setCurrentUser} />
 
@@ -73,7 +52,6 @@ function App() {
   function onLogout()
   {
     setCurrentUser("")
-    // setJobList([])
   }
 
   function handleAddJob(item)
@@ -102,6 +80,11 @@ function App() {
         return item
     })
     setJobList(newListing)
+  }
+
+  function handleAddOffer(job)
+  {
+    setOfferList([...offerList, job])
   }
 
   return (
@@ -133,7 +116,7 @@ function App() {
               <Offer offerList={ offerList }/>
             </Route>
             <Route path="/">
-              <Home currentUserId={ currentUser.id } jobList={ jobList } handleAddJob={ handleAddJob } handleAddInterview={ handleAddInterview } deleteJob={ deleteJob } handleJobPatch={ handleJobPatch }/>
+              <Home currentUserId={ currentUser.id } jobList={ jobList } handleAddJob={ handleAddJob } handleAddInterview={ handleAddInterview } deleteJob={ deleteJob } handleJobPatch={ handleJobPatch } handleAddOffer={ handleAddOffer }/>
             </Route>
           </Switch>
         </div>

@@ -4,9 +4,9 @@ function InterviewItem({ item })
 
     return (
         <tr>
+            <td>{ job.company }</td>
             <td>{ interviewDate }</td>
             <td>{ interviewTime }</td>
-            <td>{ job.company }</td>
         </tr>
     )
 }

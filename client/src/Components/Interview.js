@@ -19,9 +19,9 @@ function Interview({ interviewList })
             <Table striped bordered hover>
                 <thead>
                     <tr>
+                        <th>Company</th>
                         <th>Date</th>
                         <th>Time</th>
-                        <th>Company</th>
                     </tr>
                 </thead>
                 <tbody>

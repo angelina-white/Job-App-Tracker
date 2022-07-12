@@ -19,23 +19,6 @@ function Offer({ offerList })
             <ul>
                 { displayList }
             </ul>
-
-            {/* <Table striped bordered hover>
-                <thead>
-                    <tr>
-                        <th>Company</th>
-                        <th>Salary</th>
-                        <th>Position Type</th>
-                        <th>Medical</th>
-                        <th>Vacation Days</th>
-                        <th>Sick Leave</th>
-                        <th>Bonus</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    { displayList }
-                </tbody>
-            </Table> */}
         </div>
     )
 }
