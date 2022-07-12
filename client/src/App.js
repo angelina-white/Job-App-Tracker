@@ -1,7 +1,6 @@
 import './App.css';
-import Signup from './Components/Signup';
-import Login from './Components/Login';
 import Home from './Components/Home';
+import HomeLogin from './Components/HomeLogin';
 import Interview from './Components/Interview';
 import Offer from './Components/Offer';
 import {
@@ -36,31 +35,32 @@ function App() {
     })
   }, [])
 
-  useEffect(() =>
-  {
-    // fetch(`/users/${currentUserId}/jobs`)
-    fetch(`/users/16/jobs`)
-    .then(resp => resp.json())
-    .then(data => setJobList(data))
-  }, [])
+  // useEffect(() =>
+  // {
+  //   // fetch(`/users/${currentUserId}/jobs`)
+  //   fetch(`/users/17/jobs`)
+  //   .then(resp => resp.json())
+  //   .then(data => setJobList(data))
+  // }, [])
 
-  useEffect(() =>
-  {
-    // fetch(`/users/${currentUserId}/interviews`)
-    fetch(`/users/16/interviews`)
-    .then(resp => resp.json())
-    .then(data => setInterviewList(data))
-  }, [])
+  // useEffect(() =>
+  // {
+  //   // fetch(`/users/${currentUserId}/interviews`)
+  //   fetch(`/users/17/interviews`)
+  //   .then(resp => resp.json())
+  //   .then(data => setInterviewList(data))
+  // }, [])
 
-  useEffect(() =>
-  {
-    // fetch(`/users/${currentUserId}/interviews`)
-    fetch(`/users/16/offers`)
-    .then(resp => resp.json())
-    .then(data => setOfferList(data))
-  }, [])
+  // useEffect(() =>
+  // {
+  //   // fetch(`/users/${currentUserId}/interviews`)
+  //   fetch(`/users/17/offers`)
+  //   .then(resp => resp.json())
+  //   .then(data => setOfferList(data))
+  // }, [])
 
   // if(!currentUser) return <Signup setCurrentUser = {setCurrentUser} />
+  if(!currentUser) return <HomeLogin setCurrentUser = {setCurrentUser} />
 
   function handleLogout() 
   {
@@ -105,8 +105,7 @@ function App() {
 
   return (
     <div className="App">
-      <Signup setCurrentUser = {setCurrentUser} />
-      <Login setCurrentUser = {setCurrentUser} />
+      <div className="Home">
       <button onClick={handleLogout}>Logout</button>
       <h4 id="loggedInUsername">{ currentUser.username }</h4>
         <Router>
@@ -139,6 +138,7 @@ function App() {
             </Switch>
           </div>
         </Router>
+      </div>
     </div>
   );
 }

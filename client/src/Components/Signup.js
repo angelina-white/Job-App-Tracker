@@ -1,6 +1,7 @@
 import { useState } from "react";
+import Button from 'react-bootstrap/Button';
 
-function Signup({ setCurrentUser })
+function Signup({ setCurrentUser, handleCloseSignup })
 {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -30,6 +31,7 @@ function Signup({ setCurrentUser })
             res.json().then( e => setErrors(Object.entries(e.error).flat()))
           }
         })
+        .then((user) => handleCloseSignup)
         // .then((user) => console.log(user));
     }
 
@@ -48,7 +50,7 @@ function Signup({ setCurrentUser })
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                <button type="submit">Sign Up</button>
+                <Button type="submit">Submit</Button>
             </form>
         </div>
     )
