@@ -28,8 +28,6 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
     {
         e.preventDefault()
 
-        console.log(jobAppInput)
-
         fetch("/jobs", 
         {
             method: 'POST',
@@ -118,39 +116,33 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
         .then(resp => resp.json())
         .then(data => 
         {
-            setOfferInfo(data)
+            const findJob = jobList.find((item) => item.id == offer.job_id)
+            const jobPatchData = 
+            {
+                dateApplied: findJob.dateApplied,
+                description: findJob.description,
+                applicationLink: findJob.applicationLink,
+                offer_id: data.id,
+                status: findJob.status,
+                user_id: currentUserId,
+                company: findJob.company
+            }
+
+            fetch(`/jobs/${offer.job_id}`,
+            {
+                method: "PATCH",
+                headers:
+                {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(jobPatchData)
+            })
+            .then(resp => resp.json())
+            .then(data => console.log(data))
+
             handleAddOffer(data)
             setShowOffer(false)
         }) 
-
-        console.log(offerInfo)
-
-        const findJob = jobList.find((item) => item.id == offer.job_id)
-        const jobPatchData = 
-        {
-            dateApplied: findJob.dateApplied,
-            description: findJob.description,
-            applicationLink: findJob.applicationLink,
-            offer_id: offerInfo.id,
-            status: findJob.status,
-            user_id: currentUserId,
-            company: findJob.company
-        }
-
-        console.log(jobPatchData)
-
-        // put patch request her
-        fetch(`/jobs/${offer.job_id}`,
-        {
-            method: "PATCH",
-            headers:
-            {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(jobPatchData)
-        })
-        .then(resp => resp.json())
-        .then(data => console.log(data))
     }
 
     return(

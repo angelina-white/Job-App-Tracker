@@ -64,10 +64,13 @@ function App() {
     setInterviewList([item, ...interviewList])
   }
 
-  function deleteJob(job)
+  function deleteJob(jobId)
   {
-    const filteredListing = jobList.filter(item => item.id !== job)
-    setJobList(filteredListing)
+    const filteredJobList = jobList.filter(item => item.id !== jobId)
+    setJobList(filteredJobList)
+
+    const filteredInterviewList = interviewList.filter(item => item.job.id !== jobId)
+    setInterviewList(filteredInterviewList)
   }
 
   function handleJobPatch(job)
