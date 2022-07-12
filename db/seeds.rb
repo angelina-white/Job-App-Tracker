@@ -5,8 +5,8 @@ User.delete_all
 
 # puts "starting seeding"
 
-# puts "seeding offers"
-# o0 = Offer.create(id: 1, salary: 0, medical: "", pto: 0, sickLeave: 0, bonus: 0, positionType: "")
+puts "seeding offers"
+o0 = Offer.create(id: 1, salary: 0, medical: "", pto: 0, sickLeave: 0, bonus: 0, positionType: "")
 
 # puts "seeding offers"
 # u1 = User.create(id: 1, username: "ang", password_digest: "123")

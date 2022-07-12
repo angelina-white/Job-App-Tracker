@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 
 function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, deleteJob, handleJobPatch })
 {
+
     const [jobAppInput, setJobAppInput] = useState(
         {
             dateApplied: "",
@@ -27,6 +28,8 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
     function handleSubmitJobApp(e)
     {
         e.preventDefault()
+
+        console.log(jobAppInput)
 
         fetch("/jobs", 
         {
@@ -82,7 +85,6 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
     const [showOffer, setShowOffer] = useState(false);
     const handleCloseOffer = () => setShowOffer(false);
     const handleShowOffer = () => setShowOffer(true);
-    const [offerID, setOfferID] = useState("");
     const [offerInfo, setOfferInfo] = useState("");
 
     const [offer, setOffer] = useState({salary:0, medical:"", pto:0, sickLeave:0, bonus:0, positionType:"", job_id:""})
@@ -119,9 +121,10 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
         {
             setOfferInfo(data)
             // handleAddOffer(data)
-            // setShowOffer(false)
+            setShowOffer(false)
         }) 
 
+        console.log(offerInfo)
 
         const findJob = jobList.find((item) => item.id == offer.job_id)
         const jobPatchData = 
@@ -131,9 +134,11 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
             applicationLink: findJob.applicationLink,
             offer_id: offerInfo.id,
             status: findJob.status,
-            user_id: findJob.user_id,
+            user_id: currentUserId,
             company: findJob.company
         }
+
+        console.log(jobPatchData)
 
         // put patch request her
         fetch(`/jobs/${offer.job_id}`,
@@ -156,7 +161,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
             <form onSubmit={handleSubmitJobApp}>
                 <label>
                     Date applied:
-                    <input name="dateApplied" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
+                    <input name="dateApplied" type="text" placeholder="yyyy/mm/dd" onChange={handleChangeJobApp}/>
                 </label>
                 <label>
                     Company:

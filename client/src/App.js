@@ -27,39 +27,40 @@ function App() {
       if(res.ok)
       {
         res.json().then(user => 
-          {
-            setCurrentUser(user)
-            setCurrentUserId(user.id)
-          })
+        {
+          setCurrentUser(user)
+          setCurrentUserId(user.id)
+        })
       }
     })
   }, [])
 
-  // useEffect(() =>
-  // {
-  //   // fetch(`/users/${currentUserId}/jobs`)
-  //   fetch(`/users/17/jobs`)
-  //   .then(resp => resp.json())
-  //   .then(data => setJobList(data))
-  // }, [])
+  useEffect(() =>
+  {
+    // fetch(`/users/${currentUserId}/jobs`)
+    fetch(`/users/18/jobs`)
+    .then(resp => resp.json())
+    .then(data => setJobList(data))
+  }, [])
 
   // useEffect(() =>
   // {
   //   // fetch(`/users/${currentUserId}/interviews`)
-  //   fetch(`/users/17/interviews`)
+  //   fetch(`/users/18/interviews`)
   //   .then(resp => resp.json())
   //   .then(data => setInterviewList(data))
   // }, [])
 
-  // useEffect(() =>
-  // {
-  //   // fetch(`/users/${currentUserId}/interviews`)
-  //   fetch(`/users/17/offers`)
-  //   .then(resp => resp.json())
-  //   .then(data => setOfferList(data))
-  // }, [])
+  useEffect(() =>
+  {
+    // fetch(`/users/${currentUserId}/offers`)
+    fetch(`/users/18/offers`)
+    .then(resp => resp.json())
+    .then(data => setOfferList(data))
+  }, [])
 
-  // if(!currentUser) return <Signup setCurrentUser = {setCurrentUser} />
+  // console.log(offerList)
+
   if(!currentUser) return <HomeLogin setCurrentUser = {setCurrentUser} />
 
   function handleLogout() 
@@ -105,40 +106,38 @@ function App() {
 
   return (
     <div className="App">
-      <div className="Home">
+      <h1>Job Application Tracker</h1>
       <button onClick={handleLogout}>Logout</button>
       <h4 id="loggedInUsername">{ currentUser.username }</h4>
-        <Router>
-          <div>
-            <nav>
-              <ul>
-                <li>
-                  <Link to="/">Home</Link>
-                </li>
-                <li>
-                  <Link to="/interview">Interview</Link>
-                </li>
-                <li>
-                  <Link to="/offer">Offer</Link>
-                </li>
-              </ul>
-            </nav>
+      <Router>
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/interview">Interview</Link>
+              </li>
+              <li>
+                <Link to="/offer">Offer</Link>
+              </li>
+            </ul>
+          </nav>
 
-            <Switch>
-              <Route path="/interview">
-                {/* <Interview interviewList={ interviewList } handleAddInterview={ handleAddInterview }/> */}
-                <Interview interviewList={ interviewList } />
-              </Route>
-              <Route path="/offer">
-                <Offer offerList={ offerList }/>
-              </Route>
-              <Route path="/">
-                <Home currentUserId={ currentUserId } jobList={ jobList } handleAddJob={ handleAddJob } handleAddInterview={ handleAddInterview } deleteJob={ deleteJob } handleJobPatch={ handleJobPatch }/>
-              </Route>
-            </Switch>
-          </div>
-        </Router>
-      </div>
+          <Switch>
+            <Route path="/interview">
+              <Interview interviewList={ interviewList } />
+            </Route>
+            <Route path="/offer">
+              <Offer offerList={ offerList }/>
+            </Route>
+            <Route path="/">
+              <Home currentUserId={ currentUser.id } jobList={ jobList } handleAddJob={ handleAddJob } handleAddInterview={ handleAddInterview } deleteJob={ deleteJob } handleJobPatch={ handleJobPatch }/>
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     </div>
   );
 }

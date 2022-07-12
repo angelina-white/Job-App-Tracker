@@ -4,6 +4,8 @@ import OfferItem from "./OfferItem";
 function Offer({ offerList })
 {
 
+    console.log(offerList)
+
     const displayList = offerList.map((item) =>
     {
         return (
@@ -14,8 +16,11 @@ function Offer({ offerList })
     return (
         <div className="offer">
             <h2>Offer</h2>
+            <ul>
+                { displayList }
+            </ul>
 
-            <Table striped bordered hover>
+            {/* <Table striped bordered hover>
                 <thead>
                     <tr>
                         <th>Company</th>
@@ -30,7 +35,7 @@ function Offer({ offerList })
                 <tbody>
                     { displayList }
                 </tbody>
-            </Table>
+            </Table> */}
         </div>
     )
 }
