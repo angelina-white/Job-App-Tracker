@@ -30,7 +30,7 @@ function Login({ setCurrentUser, renderLists })
             res.json().then( e => setErrors(Object.entries(e.error).flat()))
           }
         })
-        .then((user) => renderLists());
+        .then(() => renderLists());
     }
 
     return (
@@ -49,6 +49,7 @@ function Login({ setCurrentUser, renderLists })
                   onChange={(e) => setPassword(e.target.value)}
                 />
                 <button type="submit">Login</button>
+                <p>{ errors }</p>
             </form>
         </div>
     )

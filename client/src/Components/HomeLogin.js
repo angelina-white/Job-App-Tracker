@@ -15,8 +15,6 @@ function HomeLogin({ setCurrentUser, renderLists })
             <h3>Login</h3>
             <Login setCurrentUser = { setCurrentUser } renderLists={ renderLists }/>
             
-
-
             <Button variant="primary" onClick={handleShowSignup}>
                 Signup
             </Button>
