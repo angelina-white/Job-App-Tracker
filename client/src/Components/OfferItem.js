@@ -9,7 +9,7 @@ function OfferItem({ item })
     return (
         <div>
             <Card style={{ width: '18rem' }}>
-                <Card.Header>{ findJob[0] }</Card.Header>
+                <Card.Header>{ findJob[1] }</Card.Header>
                 <ListGroup variant="flush">
                     <ListGroup.Item>Salary: { salary }</ListGroup.Item>
                     <ListGroup.Item>Position type: { positionType }</ListGroup.Item>

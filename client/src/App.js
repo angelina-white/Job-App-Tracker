@@ -13,7 +13,7 @@ function App() {
   const [interviewList, setInterviewList] = useState([]);
   const [offerList, setOfferList] = useState([]);
 
-  useEffect(() =>
+  function fetchData()
   {
     fetch('/auth')
     .then(res => 
@@ -38,20 +38,31 @@ function App() {
         })
       }
     })
+  }
+
+  useEffect(() =>
+  {
+    fetchData()
   }, [])
 
-  if(!currentUser) return <HomeLogin setCurrentUser = {setCurrentUser} />
+  if(!currentUser) return <HomeLogin setCurrentUser = {setCurrentUser} renderLists={ renderLists }/>
+
+  function renderLists()
+  {
+    fetchData()
+  }
 
   function handleLogout() 
   {
     fetch("/logout", {
       method: "DELETE",
-    }).then(() => onLogout());
-  }
-
-  function onLogout()
-  {
-    setCurrentUser("")
+    }).then(() => 
+    {
+      setCurrentUser("")
+      setJobList([])
+      setInterviewList([])
+      setOfferList([])
+    })
   }
 
   function handleAddJob(item)
@@ -77,7 +88,7 @@ function App() {
   {
     const newListing = jobList.map((item) =>
     {
-      if (item.id == job.id)
+      if (item.id === job.id)
         return job
       else
         return item

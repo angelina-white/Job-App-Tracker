@@ -115,7 +115,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
         .then(resp => resp.json())
         .then(data => 
         {
-            const findJob = jobList.find((item) => item.id == offer.job_id)
+            const findJob = jobList.find((item) => item.id === offer.job_id)
             const jobPatchData = 
             {
                 dateApplied: findJob.dateApplied,

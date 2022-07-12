@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Login({ setCurrentUser})
+function Login({ setCurrentUser, renderLists })
 {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -30,7 +30,7 @@ function Login({ setCurrentUser})
             res.json().then( e => setErrors(Object.entries(e.error).flat()))
           }
         })
-        // .then((user) => console.log(user));
+        .then((user) => renderLists());
     }
 
     return (
