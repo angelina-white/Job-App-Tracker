@@ -12,7 +12,7 @@ function App() {
   const [jobList, setJobList] = useState([]);
   const [interviewList, setInterviewList] = useState([]);
   const [offerList, setOfferList] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("")
+  const [searchTerm, setSearchTerm] = useState("");
 
   function fetchData()
   {

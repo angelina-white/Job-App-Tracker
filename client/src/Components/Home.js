@@ -1,12 +1,24 @@
-import {useState} from "react"
+import { useState, useEffect } from "react"
 import JobItem from "./JobItem"
 import Table from 'react-bootstrap/Table';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { FaSearch } from 'react-icons/fa';
+import PulseLoader from "react-spinners/PulseLoader";
 
 function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, deleteJob, handleJobPatch, handleAddOffer, handleUserInput })
 {
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() =>
+    {
+      setLoading(true)
+      setTimeout(() =>
+      {
+        setLoading(false)
+      }, 2400)
+    }, [])
+
     const current = new Date();
     const currentDate = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()}`
 
@@ -169,6 +181,12 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
 
     return(
         <div className="home">
+            {loading ?
+            <div id="loading">
+                <PulseLoader font-size={"500px"} color={'#E0E9FC'} loading={ loading }/>
+            </div>
+            :
+            <div>
             <div>
                 <div id="intButton">
                     {isSelected ? 
@@ -263,43 +281,45 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
                 <input className="searchBar" type="text" placeholder="Search company..." onChange={ handleSearchInput }/>
 
             </div>
-            <div className="jobTableBackground" >
-                <Table striped bordered hover id="jobsTable" >
-                    <thead id="jobsTableHeader">
-                        <tr>
-                            <th className="idCol">Select</th>
-                            <th className="dateCol">Date</th>
-                            <th className="companyCol">Company</th>
-                            <th className="descriptionCol">Job Title</th>
-                            <th className="applicationCol">Application Link</th>
-                            <th className="statusCol">Status</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody className="jobsTableBody" id="jobScroll">
-                        <tr>
-                            <td className="idCol"></td>
-                            <td className="dateCol">
-                                { currentDate }
-                            </td>
-                            <td className="companyCol">
-                                <input id="companyInput" name="company" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
-                            </td>
-                            <td className="descriptionCol">
-                                <input id="descriptionInput" name="description" type="textarea" placeholder="Enter..." onChange={handleChangeJobApp}/>
-                            </td>
-                            <td className="applicationCol">
-                                <input id="applicationInput" name="applicationLink" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
-                            </td>
-                            <td className="statusCol">Status</td>
-                            <td>
-                                <Button onClick={handleSubmitJobApp} variant="secondary">Submit</Button>
-                            </td>
-                        </tr>
-                        { displayList }
-                    </tbody>
-                </Table>
-            </div>
+                <div className="jobTableBackground" >
+                    <Table striped bordered hover id="jobsTable" >
+                        <thead id="jobsTableHeader">
+                            <tr>
+                                <th className="idCol">Select</th>
+                                <th className="dateCol">Date</th>
+                                <th className="companyCol">Company</th>
+                                <th className="descriptionCol">Job Title</th>
+                                <th className="applicationCol">Application Link</th>
+                                <th className="statusCol">Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody className="jobsTableBody" id="jobScroll">
+                            <tr>
+                                <td className="idCol"></td>
+                                <td className="dateCol">
+                                    { currentDate }
+                                </td>
+                                <td className="companyCol">
+                                    <input id="companyInput" name="company" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
+                                </td>
+                                <td className="descriptionCol">
+                                    <input id="descriptionInput" name="description" type="textarea" placeholder="Enter..." onChange={handleChangeJobApp}/>
+                                </td>
+                                <td className="applicationCol">
+                                    <input id="applicationInput" name="applicationLink" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
+                                </td>
+                                <td className="statusCol">Status</td>
+                                <td>
+                                    <Button onClick={handleSubmitJobApp} variant="secondary">Submit</Button>
+                                </td>
+                            </tr>
+                            { displayList }
+                        </tbody>
+                    </Table>
+                </div>       
+                </div>
+                }
         </div>
     )
 }

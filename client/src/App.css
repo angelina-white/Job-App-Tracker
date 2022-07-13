@@ -152,6 +152,11 @@
     text-align: center;
 }
 
+#loading {
+    margin-top: 265px;
+    margin-left: -75px;
+}
+
 #jobsTable {
     width: 95%;
     margin-left: 35px;
