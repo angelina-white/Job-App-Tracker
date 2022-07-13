@@ -6,10 +6,12 @@ import Button from 'react-bootstrap/Button';
 
 function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, deleteJob, handleJobPatch, handleAddOffer })
 {
+    const current = new Date();
+    const currentDate = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()}`
 
     const [jobAppInput, setJobAppInput] = useState(
         {
-            dateApplied: "",
+            dateApplied: currentDate,
             description: "",
             applicationLink: "",
             offer_id: 1,
@@ -244,7 +246,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
                         <tr>
                             <td className="idCol">ID</td>
                             <td className="dateCol">
-                                <input id="jobDateInput" name="dateApplied" type="text" placeholder="yyyy-mm-dd" onChange={handleChangeJobApp}/>
+                                { currentDate }
                             </td>
                             <td className="companyCol">
                                 <input id="companyInput" name="company" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
