@@ -48,7 +48,7 @@ function Signup({ setCurrentUser, handleCloseSignup })
               </div>
               <div className="signupInput">
                 <input
-                    type="text"
+                    type="password"
                     placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}

@@ -219,7 +219,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
                                 <div className="addDate">
                                     <label className="addInterviewInputContainer">
                                         Enter:
-                                        <input className="addInterviewInput" id="monthInput" name="month" type="text" placeholder="m" onChange={handleChangeInterview}/>
+                                        <input className="addInterviewInput" id="monthInput" name="month" type="text" placeholder="mm" onChange={handleChangeInterview}/>
                                     </label>
                                     <input className="addInterviewInput" id="dayInput" name="day" type="text" placeholder="dd" onChange={handleChangeInterview}/>
                                     <input className="addInterviewInput" id="yearInput" name="year" type="text" placeholder="yyyy" onChange={handleChangeInterview}/>

@@ -21,7 +21,7 @@ function Interview({ interviewList })
 
     function eventStyleGetter(event, start, end, isSelected) 
     {
-        var backgroundColor = "#FFC0CB"
+        var backgroundColor = "#C8E0DD"
         var style = {
             backgroundColor: backgroundColor,
             borderRadius: '0px',
@@ -41,8 +41,8 @@ function Interview({ interviewList })
         return (
             {
                 title: item.job.company,
-                start: new Date(item.year, item.month, item.day, item.hour, item.minute),
-                end: new Date(item.year, item.month, item.day, (item.hour + 2), 0),
+                start: new Date(item.year, (item.month - 1), item.day, item.hour, item.minute),
+                end: new Date(item.year, (item.month - 1), item.day, (item.hour + 2), 0),
                 isTranspo: true
             }
         )
@@ -51,15 +51,16 @@ function Interview({ interviewList })
     return (
         <div className="interview">
             <h2 id="interviewTitle">Interviews</h2>
-
-            <Calendar
-                localizer={localizer}
-                events={interviewEvents}
-                startAccessor="start"
-                endAccessor="end"
-                style={{ height: 500 }}
-                eventPropGetter={(eventStyleGetter)}
-            />
+            <div id="calendar">
+                <Calendar
+                    localizer={localizer}
+                    events={interviewEvents}
+                    startAccessor="start"
+                    endAccessor="end"
+                    style={{ height: 500, width: 1350 }}
+                    eventPropGetter={(eventStyleGetter)}
+                />
+            </div>
         </div>
     )
 }
