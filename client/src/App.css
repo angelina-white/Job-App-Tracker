@@ -152,11 +152,6 @@
     text-align: center;
 }
 
-#homeTitle {
-    margin-bottom: 25px;
-    color: #30454D;
-}
-
 #jobsTable {
     width: 95%;
     margin-left: 35px;
@@ -176,7 +171,7 @@
 }
 
 #jobScroll {
-    height: 400px;
+    height: 470px;
     overflow: scroll;
 }
 
@@ -304,18 +299,16 @@ tr {
     float: left;
     margin-left: 35px;
     margin-bottom: 10px;
-    margin-top: 5px;
 }
 
 #offerButton {
     float: left;
-    margin-top: 5px;
 }
 
 #searchIcon {
     float: left;
     margin-left: 900px;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .searchBar {
@@ -323,5 +316,4 @@ tr {
     font-size: 15px;
     height: 35px;
     margin-left: 10px;
-    margin-top: 5px;
 }

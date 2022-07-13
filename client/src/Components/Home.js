@@ -162,9 +162,13 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
         }) 
     }
 
+    function handleSearchInput(e)
+    {
+        console.log(e.target.value)
+    }
+
     return(
         <div className="home">
-            <h2 id="homeTitle">Home</h2>
             <div>
                 <div id="intButton">
                     {isSelected ? 
@@ -256,45 +260,46 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
                 </div>
 
                 <p id="searchIcon"><FaSearch /></p>
-                <input className="searchBar" type="text" placeholder="Search" />
+                <input className="searchBar" type="text" placeholder="Search..." onChange={ handleSearchInput }/>
 
             </div>
-            <Table striped bordered hover id="jobsTable" >
-                <thead id="jobsTableHeader">
-                    <tr>
-                        <th className="idCol">Select</th>
-                        <th className="dateCol">Date</th>
-                        <th className="companyCol">Company</th>
-                        <th className="descriptionCol">Job Title</th>
-                        <th className="applicationCol">Application Link</th>
-                        <th className="statusCol">Status</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody className="jobsTableBody" id="jobScroll">
-                    <tr>
-                        <td className="idCol"></td>
-                        <td className="dateCol">
-                            { currentDate }
-                        </td>
-                        <td className="companyCol">
-                            <input id="companyInput" name="company" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
-                        </td>
-                        <td className="descriptionCol">
-                            <input id="descriptionInput" name="description" type="textarea" placeholder="Enter..." onChange={handleChangeJobApp}/>
-                        </td>
-                        <td className="applicationCol">
-                            <input id="applicationInput" name="applicationLink" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
-                        </td>
-                        <td className="statusCol">Status</td>
-                        <td>
-                            <Button onClick={handleSubmitJobApp} variant="secondary">Submit</Button>
-                        </td>
-                    </tr>
-                    { displayList }
-                </tbody>
-            </Table>
-
+            <div className="jobTableBackground" >
+                <Table striped bordered hover id="jobsTable" >
+                    <thead id="jobsTableHeader">
+                        <tr>
+                            <th className="idCol">Select</th>
+                            <th className="dateCol">Date</th>
+                            <th className="companyCol">Company</th>
+                            <th className="descriptionCol">Job Title</th>
+                            <th className="applicationCol">Application Link</th>
+                            <th className="statusCol">Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody className="jobsTableBody" id="jobScroll">
+                        <tr>
+                            <td className="idCol"></td>
+                            <td className="dateCol">
+                                { currentDate }
+                            </td>
+                            <td className="companyCol">
+                                <input id="companyInput" name="company" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
+                            </td>
+                            <td className="descriptionCol">
+                                <input id="descriptionInput" name="description" type="textarea" placeholder="Enter..." onChange={handleChangeJobApp}/>
+                            </td>
+                            <td className="applicationCol">
+                                <input id="applicationInput" name="applicationLink" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
+                            </td>
+                            <td className="statusCol">Status</td>
+                            <td>
+                                <Button onClick={handleSubmitJobApp} variant="secondary">Submit</Button>
+                            </td>
+                        </tr>
+                        { displayList }
+                    </tbody>
+                </Table>
+            </div>
         </div>
     )
 }
