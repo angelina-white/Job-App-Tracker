@@ -73,7 +73,7 @@ function App() {
 
   function handleAddInterview(item)
   {
-    setInterviewList([item, ...interviewList])
+    setInterviewList([...interviewList, item])
   }
 
   function deleteJob(jobId)

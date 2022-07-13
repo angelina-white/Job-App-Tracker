@@ -114,7 +114,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
         .then(data => 
         {
             console.log(data)
-            // handleAddInterview(data)
+            handleAddInterview(data)
             setShowInterview(false)
         }) 
     }
