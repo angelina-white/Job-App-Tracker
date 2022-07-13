@@ -234,8 +234,8 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
                         <th className="idCol">ID</th>
                         <th className="dateCol">Date</th>
                         <th className="companyCol">Company</th>
+                        <th className="descriptionCol">Job Title</th>
                         <th className="applicationCol">Application Link</th>
-                        <th className="descriptionCol">Description</th>
                         <th className="statusCol">Status</th>
                         <th>Actions</th>
                     </tr>
@@ -249,11 +249,11 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
                             <td className="companyCol">
                                 <input id="companyInput" name="company" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
                             </td>
-                            <td className="applicationCol">
-                                <input id="applicationInput" name="applicationLink" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
-                            </td>
                             <td className="descriptionCol">
                                 <input id="descriptionInput" name="description" type="textarea" placeholder="Enter..." onChange={handleChangeJobApp}/>
+                            </td>
+                            <td className="applicationCol">
+                                <input id="applicationInput" name="applicationLink" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
                             </td>
                             <td className="statusCol">Status</td>
                             <td>
