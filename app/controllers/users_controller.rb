@@ -13,9 +13,8 @@ class UsersController < ApplicationController
 
     def jobs_index
         user = User.find(params[:user_id])
-        jobs = user.jobs
-        sortJobs = jobs.order(dateApplied: :DESC)
-        render json: sortJobs
+        jobs = user.jobs.order(dateApplied: :DESC)
+        render json: jobs
     end
 
     def interviews_index
