@@ -15,8 +15,16 @@
 .loginRight {
     float: left;
     text-align: center;
-    margin-left: 275px;
-    margin-top: 150px;
+    margin-left: 225px;
+    margin-top: 125px;
+}
+
+.loginRightBackground {
+    height: 450px;
+    width: 400px;
+    padding-top: 35px;
+    background-color: #E9F5F7;
+    border-radius: 6px;
 }
 
 #loginTitle {
@@ -82,7 +90,6 @@
 
 .links {
     float: left;
-    /* margin-right: 50px; */
     font-size: 20px;
     width: 100px;
 }

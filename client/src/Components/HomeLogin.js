@@ -17,25 +17,27 @@ function HomeLogin({ setCurrentUser, renderLists })
                 <img id="loginPhoto" src={loginPhoto} />
             </div>
             <div className="loginRight">
-                <h1 id="loginTitle">Login</h1>
-                <Login setCurrentUser = { setCurrentUser } renderLists={ renderLists }/>
-                
-                <Button variant="primary" id="signupButton" onClick={handleShowSignup}>
-                    Signup
-                </Button>
-                <Modal show={showSignup} onHide={handleCloseSignup}>
-                    <Modal.Header closeButton>
-                        <Modal.Title id="signupTitle">Sign up</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <Signup setCurrentUser = {setCurrentUser} handleCloseSignup={ handleCloseSignup }/>
-                    </Modal.Body>
-                    <Modal.Footer>
-                    <Button variant="secondary" onClick={handleCloseSignup}>
-                        Close
+                <div className="loginRightBackground">
+                    <h1 id="loginTitle">Login</h1>
+                    <Login setCurrentUser = { setCurrentUser } renderLists={ renderLists }/>
+                    
+                    <Button variant="primary" id="signupButton" onClick={handleShowSignup}>
+                        Signup
                     </Button>
-                    </Modal.Footer>
-                </Modal>
+                    <Modal show={showSignup} onHide={handleCloseSignup}>
+                        <Modal.Header closeButton>
+                            <Modal.Title id="signupTitle">Sign up</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <Signup setCurrentUser = {setCurrentUser} handleCloseSignup={ handleCloseSignup }/>
+                        </Modal.Body>
+                        <Modal.Footer>
+                        <Button variant="secondary" onClick={handleCloseSignup}>
+                            Close
+                        </Button>
+                        </Modal.Footer>
+                    </Modal>
+                </div>
             </div>
         </div>
     )
