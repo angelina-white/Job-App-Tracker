@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Button from 'react-bootstrap/Button';
 
 function JobItem({ item, deleteJob, handleJobPatch })
 {
@@ -92,13 +93,13 @@ function JobItem({ item, deleteJob, handleJobPatch })
             <td>
                 { isEdit ? 
                     <div>
-                        <button onClick={ handleSubmit }>Submit</button>
-                        <button value={ id } onClick={ handleEdit }>Unedit</button>      
-                        <button value={ id } onClick={ handleDelete }>Delete</button>     
+                        <Button variant="secondary" id="jobActionButtonSmall" onClick={ handleSubmit }>Submit</Button>
+                        <Button variant="secondary" id="jobActionButtonSmall" value={ id } onClick={ handleEdit }>Unedit</Button>      
+                        <Button variant="secondary" id="jobActionButtonSmall" value={ id } onClick={ handleDelete }>Delete</Button>     
                     </div> :
                     <div>
-                        <button value={ id } onClick={ handleEdit }>Edit</button> 
-                        <button value={ id } onClick={ handleDelete }>Delete</button>
+                        <Button variant="secondary" id="jobActionButton" value={ id } onClick={ handleEdit }>Edit</Button> 
+                        <Button variant="secondary" id="jobActionButton" value={ id } onClick={ handleDelete }>Delete</Button>
                     </div>
                 }
             </td>

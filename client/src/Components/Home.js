@@ -229,7 +229,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
                 </Modal>
             </div>
 
-            <Table striped bordered hover>
+            <Table striped bordered hover id="jobsTable">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -244,7 +244,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
                 <tbody>
                     <tr>
                         <td>ID</td>
-                        <td>
+                        <td id="test">
                             <input className="jobInput" name="dateApplied" type="text" placeholder="yyyy-mm-dd" onChange={handleChangeJobApp}/>
                         </td>
                         <td>

@@ -147,20 +147,31 @@
 
 #homeTitle {
     margin-bottom: 25px;
+    color: #30454D;
 }
 
-.addJob {
-    height: 50px;
+#jobsTable {
+    width: 95%;
+    margin-left: 35px;
 }
 
 .jobInput {
     width: 200px;
 }
 
+#jobActionButton {
+    scale: 95%;
+}
+
+#jobActionButtonSmall {
+    scale: 85%;
+    margin-left: -5px;
+}
+
 /* add interview and add offer */
 .addInterviewOffer {
     float: left;
-    margin-left: 25px;
+    margin-left: 37px;
     margin-bottom: 15px;
 }
 
