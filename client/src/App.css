@@ -295,7 +295,7 @@ tr {
 
 .addOfferInputContainer {
     margin-bottom: 15px;
-    margin-left: 50px;
+    margin-left: 75px;
 }
 
 .addOfferInput {
@@ -305,6 +305,3 @@ tr {
 #addOfferSalary {
     margin-top: 10px;
 }
-
-
-/* jobs table */
