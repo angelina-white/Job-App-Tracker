@@ -228,42 +228,42 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
                     </Modal.Footer>
                 </Modal>
             </div>
-
-            <Table striped bordered hover id="jobsTable">
-                <thead>
+            <Table striped bordered hover id="jobsTable" >
+                <thead id="jobsTableHeader">
                     <tr>
-                        <th>ID</th>
-                        <th>Date</th>
-                        <th>Company</th>
-                        <th>Application Link</th>
-                        <th>Description</th>
-                        <th>Status</th>
+                        <th className="idCol">ID</th>
+                        <th className="dateCol">Date</th>
+                        <th className="companyCol">Company</th>
+                        <th className="applicationCol">Application Link</th>
+                        <th className="descriptionCol">Description</th>
+                        <th className="statusCol">Status</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>ID</td>
-                        <td id="test">
-                            <input className="jobInput" name="dateApplied" type="text" placeholder="yyyy-mm-dd" onChange={handleChangeJobApp}/>
-                        </td>
-                        <td>
-                            <input className="jobInput" name="company" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
-                        </td>
-                        <td><
-                            input className="jobInput" name="applicationLink" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
-                        </td>
-                        <td>
-                            <input className="jobInput" name="description" type="textarea" placeholder="Enter..." onChange={handleChangeJobApp}/>
-                        </td>
-                        <td>Status</td>
-                        <td>
-                            <Button onClick={handleSubmitJobApp} variant="secondary">Submit</Button>
-                        </td>
-                    </tr>
+                <tbody className="jobsTableBody" id="jobScroll">
+                        <tr>
+                            <td className="idCol">ID</td>
+                            <td className="dateCol">
+                                <input id="jobDateInput" name="dateApplied" type="text" placeholder="yyyy-mm-dd" onChange={handleChangeJobApp}/>
+                            </td>
+                            <td className="companyCol">
+                                <input id="companyInput" name="company" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
+                            </td>
+                            <td className="applicationCol">
+                                <input id="applicationInput" name="applicationLink" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
+                            </td>
+                            <td className="descriptionCol">
+                                <input id="descriptionInput" name="description" type="textarea" placeholder="Enter..." onChange={handleChangeJobApp}/>
+                            </td>
+                            <td className="statusCol">Status</td>
+                            <td>
+                                <Button onClick={handleSubmitJobApp} variant="secondary">Submit</Button>
+                            </td>
+                        </tr>
                     { displayList }
                 </tbody>
             </Table>
+
         </div>
     )
 }

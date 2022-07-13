@@ -84,12 +84,12 @@ function JobItem({ item, deleteJob, handleJobPatch })
 
     return (
         <tr>
-            <td>{ id }</td>
-            <td>{ isEdit ? <input value={ newDateApplied } onChange={ handleId }/> : dateApplied }</td>
-            <td>{ isEdit ? <input value={ newCompany } onChange={ handleCompany }/> : company }</td>
-            <td>{ isEdit ? <input value={ newApplicationLink } onChange={ handleApplicationLink }/> : applicationLink }</td>
-            <td>{ isEdit ? <input value={ newDescription } onChange={ handleDescription }/> : description }</td>
-            <td>{ isEdit ? <input value={ newStatus } onChange={ handleStatus }/> : status }</td>
+            <td className="idCol">{ id }</td>
+            <td className="dateCol">{ isEdit ? <input id="jobDateInput" value={ newDateApplied } onChange={ handleId }/> : dateApplied }</td>
+            <td className="companyCol">{ isEdit ? <input id="companyInput" value={ newCompany } onChange={ handleCompany }/> : company }</td>
+            <td className="applicationCol">{ isEdit ? <input id="applicationInput" value={ newApplicationLink } onChange={ handleApplicationLink }/> : applicationLink }</td>
+            <td className="descriptionCol">{ isEdit ? <input id="descriptionInput" value={ newDescription } onChange={ handleDescription }/> : description }</td>
+            <td className="statusCol">{ isEdit ? <input id="statusInput" value={ newStatus } onChange={ handleStatus }/> : status }</td>
             <td>
                 { isEdit ? 
                     <div>

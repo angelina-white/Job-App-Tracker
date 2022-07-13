@@ -153,6 +153,74 @@
 #jobsTable {
     width: 95%;
     margin-left: 35px;
+    display: flex;
+    flex-flow: column;
+}
+
+#jobsTableHeader {
+    flex: 0 0 auto;
+}
+
+.jobsTableBody {
+    flex: 1 1 auto;
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#jobScroll {
+    height: 400px;
+    overflow: scroll;
+}
+
+.idCol {
+    width: 50px;
+}
+
+.dateCol {
+    width: 150px;
+}
+
+#jobDateInput {
+    width: 105px;
+}
+
+.statusCol {
+    width: 100px;
+}
+
+#statusInput {
+    width: 75px;
+}
+
+.applicationCol {
+    width: 300px;
+}
+
+#applicationInput {
+    width: 275px;
+}
+
+.companyCol {
+    width: 200px;
+}
+
+#companyInput {
+    width: 175px;
+}
+
+.descriptionCol {
+    width: 340px;
+}
+
+#descriptionInput {
+    width: 315px;
+}
+
+tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
 }
 
 .jobInput {
