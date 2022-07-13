@@ -249,12 +249,6 @@ tr {
 }
 
 /* add interview and add offer */
-.addInterviewOffer {
-    float: left;
-    margin-left: 37px;
-    margin-bottom: 15px;
-}
-
 #addIOButton {
     margin-right: 15px; 
     background-color: #A8BFB8;
@@ -304,4 +298,30 @@ tr {
 
 #addOfferSalary {
     margin-top: 10px;
+}
+
+#intButton {
+    float: left;
+    margin-left: 35px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+#offerButton {
+    float: left;
+    margin-top: 5px;
+}
+
+#searchIcon {
+    float: left;
+    margin-left: 900px;
+    margin-top: 10px;
+}
+
+.searchBar {
+    float: left;
+    font-size: 15px;
+    height: 35px;
+    margin-left: 10px;
+    margin-top: 5px;
 }
