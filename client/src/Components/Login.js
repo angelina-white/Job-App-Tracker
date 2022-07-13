@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from 'react-bootstrap/Button';
 
 function Login({ setCurrentUser, renderLists })
 {
@@ -36,20 +37,28 @@ function Login({ setCurrentUser, renderLists })
     return (
         <div classname="login">
             <form onSubmit={handleLogin}>
+              <div id="loginInput">
                 <input
-                  type="text"
-                  placeholder="Username"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                />
+                    type="text"
+                    placeholder="Username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                  />
+              </div>
+              <div id="loginInput">
                 <input
-                  type="password"
-                  placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                <button type="submit">Login</button>
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+              </div> 
+              <div>
+                <Button variant="secondary" id="loginButton" type="submit">Login</Button>
+              </div>
+              <div>
                 <p>{ errors }</p>
+              </div>
             </form>
         </div>
     )

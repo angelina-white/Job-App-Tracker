@@ -2,6 +2,63 @@
     background-color: #FCFFFE;
 }
 
+/* login */
+#loginPhoto {
+    width: 600px;
+    height: 728px;
+}
+
+.loginLeft {
+    float: left;
+}
+
+.loginRight {
+    float: left;
+    text-align: center;
+    margin-left: 275px;
+    margin-top: 150px;
+}
+
+#loginTitle {
+    color: #3D5961;
+    margin-bottom: 50px;
+}
+
+#loginInput {
+    margin-bottom: 50px;
+    font-size: 20px;
+    color: #3D5961;
+}
+
+#loginButton {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+#signupButton {
+    background-color: #97B9C2;
+    border: 0px;
+}
+
+#signupTitle {
+    color: #3D5961;
+    margin-left: 175px;
+}
+
+.signupInput {
+    margin-top: 25px;
+    margin-left: 120px;
+}
+
+#signupSubmit {
+    background-color: #97B9C2;
+    border: 0px;
+    margin-left: 185px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+/* header */
 #title {
     padding-top: 10px;
     color: #3D5961;
