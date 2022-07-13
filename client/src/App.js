@@ -103,21 +103,27 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Job Application Tracker</h1>
-      <button onClick={handleLogout}>Logout</button>
-      <h4 id="loggedInUsername">{ currentUser.username }</h4>
+      <div className="titleContainer">
+        <h1 id="title">Job Application Tracker</h1>
+      </div>
       <Router>
         <div>
           <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
+            <ul className="linksNavBar">
+              <li className="links">
+                <Link className="navText" id="homeLinkText" to="/">Home</Link>
+              </li>
+              <li className="links">
+                <Link className="navText" id="interviewLinkText" to="/interview">Interview</Link>
+              </li>
+              <li className="links">
+                <Link className="navText" id="offerLinkText" to="/offer">Offer</Link>
+              </li>
+              <li id="loggedInUsername">
+                <h4>{ currentUser.username }</h4>
               </li>
               <li>
-                <Link to="/interview">Interview</Link>
-              </li>
-              <li>
-                <Link to="/offer">Offer</Link>
+                <button id="logoutButton" onClick={handleLogout}>Logout</button>
               </li>
             </ul>
           </nav>

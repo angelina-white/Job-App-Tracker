@@ -1,1 +1,85 @@
+.App {
+    background-color: #FCFFFE;
+}
 
+#title {
+    padding-top: 10px;
+    color: #3D5961;
+}
+
+.titleContainer {
+    height: 70px;
+    background-color: #EDFBFF;
+    padding-left: 25px;
+}
+
+.linksNavBar {
+    list-style-type: none;
+    height: 50px;
+    background-color: #E9F5F7;
+    padding-top: 10px;
+    color: #30454D;
+    margin-left: -20px;
+}
+
+.links {
+    float: left;
+    /* margin-right: 50px; */
+    font-size: 20px;
+    width: 100px;
+}
+
+.navText {
+    color: #30454D;
+}
+
+.navText:hover {
+    color: #385443;
+}
+
+.navText:active{
+    color: #44805A;
+}
+
+.links:hover {
+    background-color: #D8F6EC;
+    height: 50px;
+    margin-top: -10px;
+    padding-top: 10px;
+    width: 100px;
+}
+
+#homeLinkText {
+    padding-left: 23px;
+}
+
+#interviewLinkText {
+    padding-left: 10px;
+}
+
+#offerLinkText {
+    padding-left: 25px;
+}
+
+#loggedInUsername {
+    float: left;
+    margin-left: 960px;
+}
+
+#logoutButton {
+    float: left;
+    margin-left: 20px;
+    background-color: #FCFFFE;
+    border: 2px solid #385443;
+    transition-duration: 0.3s;
+    border-radius: 4px;
+}
+
+#logoutButton:hover {
+    background-color: #385443;
+    color: #FCFFFE;
+}
+
+.home {
+    margin-top: 25px;
+}
