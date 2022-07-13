@@ -146,109 +146,112 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
 
     return(
         <div className="home">
-            <h2>Home</h2>
+            <h2 id="homeTitle"
+            >Home</h2>
 
-            <form onSubmit={handleSubmitJobApp}>
+            <form className="addJob" onSubmit={handleSubmitJobApp}>
                 <label>
                     Date applied:
-                    <input name="dateApplied" type="text" placeholder="yyyy/mm/dd" onChange={handleChangeJobApp}/>
+                    <input className="jobInput" name="dateApplied" type="text" placeholder="yyyy/mm/dd" onChange={handleChangeJobApp}/>
                 </label>
                 <label>
-                    Company:
-                    <input name="company" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
+                    Company: 
+                    <input className="jobInput" name="company" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
                 </label>
                 <label>
                     Application link:
-                    <input name="applicationLink" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
+                    <input className="jobInput" name="applicationLink" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
                 </label>
                 <label>
                     Job description:
-                    <input name="description" type="textarea" placeholder="Enter..." onChange={handleChangeJobApp}/>
+                    <input className="jobInput" name="description" type="textarea" placeholder="Enter..." onChange={handleChangeJobApp}/>
                 </label>
-                <button>Submit</button>
+                <Button variant="secondary">Submit</Button>
             </form>
 
-            <Button variant="primary" onClick={handleShowInterview}>
-                Add Interview
-            </Button>
-            <Modal show={showInterview} onHide={handleCloseInterview}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Add Interview</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <form>
-                        <label>
+            <div className="addInterviewOffer">
+                <Button variant="primary" id="addIOButton" onClick={handleShowInterview}>
+                    Add Interview
+                </Button>
+                <Modal show={showInterview} onHide={handleCloseInterview}>
+                    <Modal.Header closeButton>
+                        <Modal.Title id="addInterviewTitle">Add Interview</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <form>
+                            <label className="addInterviewInputContainer">
                                 Date:
-                                <input name="interviewDate" type="text" placeholder="yyyy/mm/dd" onChange={handleChangeInterview}/>
+                                <input className="addInterviewInput" id="addInterviewDate" name="interviewDate" type="text" placeholder="yyyy/mm/dd" onChange={handleChangeInterview}/>
                             </label>
-                            <label>
+                            <label className="addInterviewInputContainer">
                                 Time:
-                                <input name="interviewTime" type="text" placeholder="hh:mm" onChange={handleChangeInterview}/>
+                                <input className="addInterviewInput" name="interviewTime" type="text" placeholder="hh:mm" onChange={handleChangeInterview}/>
                             </label>
-                            <label>
+                            <label className="addInterviewInputContainer">
                                 Job ID:
-                                <input name="job_id" type="text" placeholder="Enter..." onChange={handleChangeInterview}/>
+                                <input className="addInterviewInput" name="job_id" type="text" placeholder="Enter..." onChange={handleChangeInterview}/>
                             </label>
-                    </form>
-                </Modal.Body>
-                <Modal.Footer>
-                <Button variant="secondary" onClick={handleCloseInterview}>
-                    Close
-                </Button>
-                <Button variant="primary" onClick={handleSubmitInterview}>
-                    Add
-                </Button>
-                </Modal.Footer>
-            </Modal>
+                        </form>
+                    </Modal.Body>
+                    <Modal.Footer>
+                    <Button variant="secondary" onClick={handleCloseInterview}>
+                        Close
+                    </Button>
+                    <Button id="addIOadd" variant="primary" onClick={handleSubmitInterview}>
+                        Add
+                    </Button>
+                    </Modal.Footer>
+                </Modal>
 
-            <Button variant="primary" onClick={handleShowOffer}>
-                Add Offer
-            </Button>
-            <Modal show={showOffer} onHide={handleCloseOffer}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Add Offer</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <form>
-                        <label>
-                            Salary:
-                            <input name="salary" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
-                        </label>
-                        <label>
-                            Medical:
-                            <input name="medical" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
-                        </label>
-                        <label>
-                            Vacation days:
-                            <input name="pto" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
-                        </label>
-                        <label>
-                            Sick leave:
-                            <input name="sickLeave" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
-                        </label>
-                        <label>
-                            Bonus:
-                            <input name="bonus" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
-                        </label>
-                        <label>
-                            Position type:
-                            <input name="positionType" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
-                        </label>
-                        <label>
-                            Job ID:
-                            <input name="job_id" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
-                        </label>
-                    </form>
-                </Modal.Body>
-                <Modal.Footer>
-                <Button variant="secondary" onClick={handleCloseOffer}>
-                    Close
+                <Button id="addIOButton" variant="primary" onClick={handleShowOffer}>
+                    Add Offer
                 </Button>
-                <Button variant="primary" onClick={handleSubmitOffer}>
-                    Add
-                </Button>
-                </Modal.Footer>
-            </Modal>
+                <Modal show={showOffer} onHide={handleCloseOffer}>
+                    <Modal.Header closeButton>
+                        <Modal.Title id="addOfferTitle">Add Offer</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <form>
+                            <label className="addOfferInputContainer" id="addOfferSalary">
+                                Salary:
+                                <input className="addOfferInput" name="salary" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
+                            </label>
+                            <label className="addOfferInputContainer">
+                                Medical:
+                                <input className="addOfferInput" name="medical" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
+                            </label>
+                            <label className="addOfferInputContainer">
+                                Vacation days:
+                                <input className="addOfferInput" name="pto" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
+                            </label>
+                            <label className="addOfferInputContainer">
+                                Sick leave:
+                                <input className="addOfferInput" name="sickLeave" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
+                            </label>
+                            <label className="addOfferInputContainer">
+                                Bonus:
+                                <input className="addOfferInput" name="bonus" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
+                            </label>
+                            <label className="addOfferInputContainer">
+                                Position type:
+                                <input className="addOfferInput" name="positionType" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
+                            </label>
+                            <label className="addOfferInputContainer">
+                                Job ID:
+                                <input className="addOfferInput" name="job_id" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
+                            </label>
+                        </form>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleCloseOffer}>
+                            Close
+                        </Button>
+                        <Button id="addIOadd" variant="primary" onClick={handleSubmitOffer}>
+                            Add
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
+            </div>
 
             <Table striped bordered hover>
                 <thead>

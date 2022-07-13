@@ -120,7 +120,7 @@ function App() {
                 <Link className="navText" id="offerLinkText" to="/offer">Offer</Link>
               </li>
               <li id="loggedInUsername">
-                <h4>{ currentUser.username }</h4>
+                <h5>{ currentUser.username }</h5>
               </li>
               <li>
                 <button id="logoutButton" onClick={handleLogout}>Logout</button>
