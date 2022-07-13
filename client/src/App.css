@@ -322,3 +322,34 @@ tr {
     height: 35px;
     margin-left: 10px;
 }
+
+/* Offers */
+.offer {
+    text-align: center;
+}
+
+#offersTitle {
+    color: #3D5961;
+    margin-bottom: 25px;
+}
+
+.cardUl {
+    list-style-type: none;
+    margin-left: 65px;
+}
+
+.cardLi {
+    float: left;
+    margin-right: 25px;
+    margin-bottom: 25px;
+}
+
+#cardHeader {
+    background-color: #C8E0DD;
+
+}
+
+#deleteIcon {
+    float: right;
+    margin-top: 5px;
+}

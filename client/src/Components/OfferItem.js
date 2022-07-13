@@ -4,12 +4,15 @@ import ListGroup from 'react-bootstrap/ListGroup';
 function OfferItem({ item })
 {
     const {salary, medical, pto, sickLeave, bonus, positionType, jobs } = item
-    const findJob = jobs.map((item) => item.company)
+    // const findJob = jobs.map((item) => item.company)
 
     return (
-        <div>
-            <Card style={{ width: '18rem' }}>
-                <Card.Header>{ findJob[1] }</Card.Header>
+        <li className="cardLi">
+            <Card style={{ width: '18rem' }} >
+                <Card.Header id="cardHeader">
+                    {/* { findJob[1] } */}
+                    company
+                </Card.Header>
                 <ListGroup variant="flush">
                     <ListGroup.Item>Salary: { salary }</ListGroup.Item>
                     <ListGroup.Item>Position type: { positionType }</ListGroup.Item>
@@ -19,7 +22,7 @@ function OfferItem({ item })
                     <ListGroup.Item>Bonus: { bonus }</ListGroup.Item>
                 </ListGroup>
             </Card>
-        </div>
+        </li>
     )
 }
 
