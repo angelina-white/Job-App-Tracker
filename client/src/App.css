@@ -136,13 +136,13 @@
     float: left;
     margin-left: 20px;
     background-color: #FCFFFE;
-    border: 2px solid #385443;
+    border: 2px solid #55635A;
     transition-duration: 0.3s;
     border-radius: 4px;
 }
 
 #logoutButton:hover {
-    background-color: #385443;
+    background-color: #55635A;
     color: #FCFFFE;
 }
 
