@@ -41,17 +41,25 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
         .then(data => handleAddJob(data)) 
     }
 
+    const [selectedJobId, setSelectedJobId] = useState("")
+    const [isSelected, setIsSelected] = useState(false)
+    function getJobId(id)
+    {
+        setSelectedJobId(id)
+        setIsSelected(true)
+    }
+
     const displayList = jobList.map((item) =>
     {
       return (
-        <JobItem item={ item } deleteJob={ deleteJob } handleJobPatch={ handleJobPatch }/>
+        <JobItem item={ item } deleteJob={ deleteJob } handleJobPatch={ handleJobPatch } getJobId={ getJobId }/>
       )
     })
 
     const [showInterview, setShowInterview] = useState(false);
     const handleCloseInterview = () => setShowInterview(false);
     const handleShowInterview = () => setShowInterview(true);
-    const [interview, setInterview] = useState({interviewDate:"", interviewTime:"", job_id: ""})
+    const [interview, setInterview] = useState({interviewDate:"", interviewTime:""})
     
     function handleChangeInterview(e)
     {
@@ -62,6 +70,13 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
     {
         e.preventDefault()
 
+        const data = 
+        {
+            interviewDate: interview.interviewDate,
+            interviewTime: interview.interviewTime,
+            job_id: selectedJobId
+        }
+
         fetch("/interviews", 
         {
             method: 'POST',
@@ -69,7 +84,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
             {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(interview)
+            body: JSON.stringify(data)
         })
         .then(resp => resp.json())
         .then(data => 
@@ -82,7 +97,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
     const [showOffer, setShowOffer] = useState(false);
     const handleCloseOffer = () => setShowOffer(false);
     const handleShowOffer = () => setShowOffer(true);
-    const [offer, setOffer] = useState({salary:0, medical:"", pto:0, sickLeave:0, bonus:0, positionType:"", job_id:""})
+    const [offer, setOffer] = useState({salary:0, medical:"", pto:0, sickLeave:0, bonus:0, positionType:""})
     
     function handleChangeOffer(e)
     {
@@ -115,7 +130,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
         .then(resp => resp.json())
         .then(data => 
         {
-            const findJob = jobList.find((item) => item.id === offer.job_id)
+            const findJob = jobList.find((item) => item.id === selectedJobId)
             const jobPatchData = 
             {
                 dateApplied: findJob.dateApplied,
@@ -127,7 +142,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
                 company: findJob.company
             }
 
-            fetch(`/jobs/${offer.job_id}`,
+            fetch(`/jobs/${selectedJobId}`,
             {
                 method: "PATCH",
                 headers:
@@ -137,10 +152,12 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
                 body: JSON.stringify(jobPatchData)
             })
             .then(resp => resp.json())
-            .then(data => console.log(data))
-
-            handleAddOffer(data)
-            setShowOffer(false)
+            .then(data => 
+            {
+                console.log(data)
+                handleAddOffer(data)
+                setShowOffer(false)
+            })
         }) 
     }
 
@@ -148,9 +165,15 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
         <div className="home">
             <h2 id="homeTitle">Home</h2>
             <div className="addInterviewOffer">
-                <Button variant="primary" id="addIOButton" onClick={handleShowInterview}>
-                    Add Interview
-                </Button>
+                {isSelected ? 
+                    <Button variant="primary" id="addIOButton" onClick={handleShowInterview}>
+                        Add Interview
+                    </Button>
+                :
+                    <Button variant="primary" id="addIOButtonGrey">
+                        Add Interview
+                    </Button>
+                }
                 <Modal show={showInterview} onHide={handleCloseInterview}>
                     <Modal.Header closeButton>
                         <Modal.Title id="addInterviewTitle">Add Interview</Modal.Title>
@@ -159,15 +182,11 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
                         <form>
                             <label className="addInterviewInputContainer">
                                 Date:
-                                <input className="addInterviewInput" id="addInterviewDate" name="interviewDate" type="text" placeholder="yyyy/mm/dd" onChange={handleChangeInterview}/>
+                                <input className="addInterviewInput" id="addInterviewDate" name="interviewDate" type="text" placeholder="yyyy-mm-dd" onChange={handleChangeInterview}/>
                             </label>
                             <label className="addInterviewInputContainer">
                                 Time:
                                 <input className="addInterviewInput" name="interviewTime" type="text" placeholder="hh:mm" onChange={handleChangeInterview}/>
-                            </label>
-                            <label className="addInterviewInputContainer">
-                                Job ID:
-                                <input className="addInterviewInput" name="job_id" type="text" placeholder="Enter..." onChange={handleChangeInterview}/>
                             </label>
                         </form>
                     </Modal.Body>
@@ -181,9 +200,15 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
                     </Modal.Footer>
                 </Modal>
 
-                <Button id="addIOButton" variant="primary" onClick={handleShowOffer}>
-                    Add Offer
-                </Button>
+                {isSelected ?
+                    <Button id="addIOButton" variant="primary" onClick={handleShowOffer}>
+                        Add Offer
+                    </Button>
+                :
+                    <Button id="addIOButtonGrey" variant="primary">
+                        Add Offer
+                    </Button>
+                }
                 <Modal show={showOffer} onHide={handleCloseOffer}>
                     <Modal.Header closeButton>
                         <Modal.Title id="addOfferTitle">Add Offer</Modal.Title>
@@ -214,10 +239,6 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
                                 Position type:
                                 <input className="addOfferInput" name="positionType" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
                             </label>
-                            <label className="addOfferInputContainer">
-                                Job ID:
-                                <input className="addOfferInput" name="job_id" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
-                            </label>
                         </form>
                     </Modal.Body>
                     <Modal.Footer>
@@ -233,7 +254,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
             <Table striped bordered hover id="jobsTable" >
                 <thead id="jobsTableHeader">
                     <tr>
-                        <th className="idCol">ID</th>
+                        <th className="idCol">Select</th>
                         <th className="dateCol">Date</th>
                         <th className="companyCol">Company</th>
                         <th className="descriptionCol">Job Title</th>
@@ -243,25 +264,25 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
                     </tr>
                 </thead>
                 <tbody className="jobsTableBody" id="jobScroll">
-                        <tr>
-                            <td className="idCol">ID</td>
-                            <td className="dateCol">
-                                { currentDate }
-                            </td>
-                            <td className="companyCol">
-                                <input id="companyInput" name="company" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
-                            </td>
-                            <td className="descriptionCol">
-                                <input id="descriptionInput" name="description" type="textarea" placeholder="Enter..." onChange={handleChangeJobApp}/>
-                            </td>
-                            <td className="applicationCol">
-                                <input id="applicationInput" name="applicationLink" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
-                            </td>
-                            <td className="statusCol">Status</td>
-                            <td>
-                                <Button onClick={handleSubmitJobApp} variant="secondary">Submit</Button>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td className="idCol"></td>
+                        <td className="dateCol">
+                            { currentDate }
+                        </td>
+                        <td className="companyCol">
+                            <input id="companyInput" name="company" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
+                        </td>
+                        <td className="descriptionCol">
+                            <input id="descriptionInput" name="description" type="textarea" placeholder="Enter..." onChange={handleChangeJobApp}/>
+                        </td>
+                        <td className="applicationCol">
+                            <input id="applicationInput" name="applicationLink" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
+                        </td>
+                        <td className="statusCol">Status</td>
+                        <td>
+                            <Button onClick={handleSubmitJobApp} variant="secondary">Submit</Button>
+                        </td>
+                    </tr>
                     { displayList }
                 </tbody>
             </Table>

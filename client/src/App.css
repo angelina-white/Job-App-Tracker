@@ -181,11 +181,16 @@
 }
 
 .idCol {
-    width: 50px;
+    width: 70px;
+}
+
+#idRadio {
+    margin-left: 15px;
+    margin-top: 5px;
 }
 
 .dateCol {
-    width: 150px;
+    width: 120px;
 }
 
 #jobDateInput {
@@ -254,6 +259,12 @@ tr {
     margin-right: 15px; 
     background-color: #A8BFB8;
     border: solid 1px #A8BFB8;
+}
+
+#addIOButtonGrey {
+    margin-right: 15px; 
+    background-color: #A4ABA9;
+    border: solid 1px #A4ABA9;
 }
 
 #addInterviewTitle {

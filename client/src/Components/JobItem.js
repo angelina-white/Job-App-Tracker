@@ -1,7 +1,8 @@
 import { useState } from "react"
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
-function JobItem({ item, deleteJob, handleJobPatch })
+function JobItem({ item, deleteJob, handleJobPatch, getJobId })
 {
 
     const {id, offer, user, company, dateApplied, applicationLink, description, status } = item
@@ -82,9 +83,22 @@ function JobItem({ item, deleteJob, handleJobPatch })
         setNewStatus(e.target.value)
     }
 
+    function selectJob()
+    {
+        getJobId(id)
+    }
+
     return (
         <tr>
-            <td className="idCol">{ id }</td>
+            <td className="idCol">
+                <Form.Check
+                    inline
+                    name="group1"
+                    type="radio"
+                    id="idRadio"
+                    onClick={ selectJob }
+                />
+            </td>
             <td className="dateCol">
                 { isEdit ? <input id="jobDateInput" value={ newDateApplied } onChange={ handleId }/> : dateApplied }
             </td>
