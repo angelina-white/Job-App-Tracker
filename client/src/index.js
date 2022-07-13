@@ -7,6 +7,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import "@popperjs/core"; 
+import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 
 ReactDOM.render(

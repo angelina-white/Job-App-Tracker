@@ -353,3 +353,13 @@ tr {
     float: right;
     margin-top: 5px;
 }
+
+/* Interviews */
+.interview {
+    text-align: center;
+}
+
+#interviewTitle {
+    color: #3D5961;
+    margin-bottom: 25px;
+}

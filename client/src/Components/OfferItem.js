@@ -10,7 +10,7 @@ function OfferItem({ item })
         <li className="cardLi">
             <Card style={{ width: '18rem' }} >
                 <Card.Header id="cardHeader">
-                    { findJob[0] }
+                    { findJob }
                 </Card.Header>
                 <ListGroup variant="flush">
                     <ListGroup.Item>Salary: { salary }</ListGroup.Item>
