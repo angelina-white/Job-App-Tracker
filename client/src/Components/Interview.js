@@ -38,6 +38,14 @@ function Interview({ interviewList })
         }
         };
 
+        const interview = 
+        {
+            year: 2022,
+            month: 6,
+            day: 27,
+            hour: 13,
+            minute: 40
+        }
     const allEvents = [
         {
             title: "Big Meeting",
@@ -48,8 +56,8 @@ function Interview({ interviewList })
         },
         {
             title: "Vacation",
-            start: new Date(2022,6,27),
-            end: new Date(2022, 6, 30),
+            start: new Date(interview.year, interview.month, interview.day, interview.hour, interview.minute),
+            end: new Date(2022, 6, 29),
             isTranspo: true
         },
         {

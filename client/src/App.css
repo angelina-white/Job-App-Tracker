@@ -266,7 +266,7 @@ tr {
 }
 
 .addInterviewInputContainer {
-    margin-bottom: 25px;
+    margin-top: 15px;
     margin-left: 100px;
 }
 
@@ -274,8 +274,35 @@ tr {
     margin-left: 10px;
 }
 
-#addInterviewDate {
-    margin-top: 25px;
+.addDate {
+    float: left;
+}
+
+.addTime {
+    float: left;
+}
+
+#monthInput {
+    width: 50px;
+    margin-bottom: 15px;
+}
+
+#dayInput {
+    width: 50px;
+}
+
+#yearInput {
+    width: 100px;
+    margin-right: 50px;
+}
+
+#hourInput {
+    width: 50px;
+    margin-bottom: 15px;
+}
+
+#minuteInput {
+    width: 50px;
 }
 
 #addIOadd {

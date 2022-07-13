@@ -204,14 +204,21 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
                         </Modal.Header>
                         <Modal.Body>
                             <form>
-                                <label className="addInterviewInputContainer">
-                                    Date:
-                                    <input className="addInterviewInput" id="addInterviewDate" name="interviewDate" type="text" placeholder="yyyy-mm-dd" onChange={handleChangeInterview}/>
-                                </label>
-                                <label className="addInterviewInputContainer">
-                                    Time:
-                                    <input className="addInterviewInput" name="interviewTime" type="text" placeholder="hh:mm" onChange={handleChangeInterview}/>
-                                </label>
+                                <div className="addDate">
+                                    <label className="addInterviewInputContainer">
+                                        Enter:
+                                        <input className="addInterviewInput" id="monthInput" name="interviewDate" type="text" placeholder="m" onChange={handleChangeInterview}/>
+                                    </label>
+                                    <input className="addInterviewInput" id="dayInput" name="interviewDate" type="text" placeholder="dd" onChange={handleChangeInterview}/>
+                                    <input className="addInterviewInput" id="yearInput" name="interviewDate" type="text" placeholder="yyyy" onChange={handleChangeInterview}/>
+                                </div>
+                                <div className="addTime">
+                                    <label className="addInterviewInputContainer">
+                                        Enter:
+                                        <input className="addInterviewInput" id="hourInput" name="interviewTime" type="text" placeholder="hh" onChange={handleChangeInterview}/>
+                                    </label>
+                                    <input className="addInterviewInput" id="minuteInput" name="interviewDate" type="text" placeholder="mm" onChange={handleChangeInterview}/>
+                                </div>
                             </form>
                         </Modal.Body>
                         <Modal.Footer>
