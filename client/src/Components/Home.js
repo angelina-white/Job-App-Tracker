@@ -72,7 +72,15 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
     const [showInterview, setShowInterview] = useState(false);
     const handleCloseInterview = () => setShowInterview(false);
     const handleShowInterview = () => setShowInterview(true);
-    const [interview, setInterview] = useState({interviewDate:"", interviewTime:""})
+
+    const [interview, setInterview] = useState(
+    {
+        month: "",
+        day: "",
+        year: "",
+        hour: "",
+        minute: ""
+    })
     
     function handleChangeInterview(e)
     {
@@ -85,8 +93,11 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
 
         const data = 
         {
-            interviewDate: interview.interviewDate,
-            interviewTime: interview.interviewTime,
+            month: interview.month,
+            day: interview.day,
+            year: interview.year,
+            hour: interview.hour,
+            minute: interview.minute,
             job_id: selectedJobId
         }
 
@@ -102,7 +113,8 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
         .then(resp => resp.json())
         .then(data => 
         {
-            handleAddInterview(data)
+            console.log(data)
+            // handleAddInterview(data)
             setShowInterview(false)
         }) 
     }
@@ -207,17 +219,17 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
                                 <div className="addDate">
                                     <label className="addInterviewInputContainer">
                                         Enter:
-                                        <input className="addInterviewInput" id="monthInput" name="interviewDate" type="text" placeholder="m" onChange={handleChangeInterview}/>
+                                        <input className="addInterviewInput" id="monthInput" name="month" type="text" placeholder="m" onChange={handleChangeInterview}/>
                                     </label>
-                                    <input className="addInterviewInput" id="dayInput" name="interviewDate" type="text" placeholder="dd" onChange={handleChangeInterview}/>
-                                    <input className="addInterviewInput" id="yearInput" name="interviewDate" type="text" placeholder="yyyy" onChange={handleChangeInterview}/>
+                                    <input className="addInterviewInput" id="dayInput" name="day" type="text" placeholder="dd" onChange={handleChangeInterview}/>
+                                    <input className="addInterviewInput" id="yearInput" name="year" type="text" placeholder="yyyy" onChange={handleChangeInterview}/>
                                 </div>
                                 <div className="addTime">
                                     <label className="addInterviewInputContainer">
                                         Enter:
-                                        <input className="addInterviewInput" id="hourInput" name="interviewTime" type="text" placeholder="hh" onChange={handleChangeInterview}/>
+                                        <input className="addInterviewInput" id="hourInput" name="hour" type="text" placeholder="hh" onChange={handleChangeInterview}/>
                                     </label>
-                                    <input className="addInterviewInput" id="minuteInput" name="interviewDate" type="text" placeholder="mm" onChange={handleChangeInterview}/>
+                                    <input className="addInterviewInput" id="minuteInput" name="minute" type="text" placeholder="mm" onChange={handleChangeInterview}/>
                                 </div>
                             </form>
                         </Modal.Body>

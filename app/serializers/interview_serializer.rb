@@ -1,4 +1,4 @@
 class InterviewSerializer < ActiveModel::Serializer
-  attributes :id, :interviewDate, :interviewTime
+  attributes :id, :month, :day, :year, :hour, :minute
   has_one :job
 end
