@@ -26,8 +26,6 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
 
     function handleSubmitJobApp(e)
     {
-        e.preventDefault()
-
         fetch("/jobs", 
         {
             method: 'POST',
@@ -146,29 +144,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
 
     return(
         <div className="home">
-            <h2 id="homeTitle"
-            >Home</h2>
-
-            <form className="addJob" onSubmit={handleSubmitJobApp}>
-                <label>
-                    Date applied:
-                    <input className="jobInput" name="dateApplied" type="text" placeholder="yyyy/mm/dd" onChange={handleChangeJobApp}/>
-                </label>
-                <label>
-                    Company: 
-                    <input className="jobInput" name="company" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
-                </label>
-                <label>
-                    Application link:
-                    <input className="jobInput" name="applicationLink" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
-                </label>
-                <label>
-                    Job description:
-                    <input className="jobInput" name="description" type="textarea" placeholder="Enter..." onChange={handleChangeJobApp}/>
-                </label>
-                <Button variant="secondary">Submit</Button>
-            </form>
-
+            <h2 id="homeTitle">Home</h2>
             <div className="addInterviewOffer">
                 <Button variant="primary" id="addIOButton" onClick={handleShowInterview}>
                     Add Interview
@@ -266,6 +242,25 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
                     </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                        <td>ID</td>
+                        <td>
+                            <input className="jobInput" name="dateApplied" type="text" placeholder="yyyy-mm-dd" onChange={handleChangeJobApp}/>
+                        </td>
+                        <td>
+                            <input className="jobInput" name="company" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
+                        </td>
+                        <td><
+                            input className="jobInput" name="applicationLink" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
+                        </td>
+                        <td>
+                            <input className="jobInput" name="description" type="textarea" placeholder="Enter..." onChange={handleChangeJobApp}/>
+                        </td>
+                        <td>Status</td>
+                        <td>
+                            <Button onClick={handleSubmitJobApp} variant="secondary">Submit</Button>
+                        </td>
+                    </tr>
                     { displayList }
                 </tbody>
             </Table>

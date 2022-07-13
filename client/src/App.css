@@ -154,14 +154,13 @@
 }
 
 .jobInput {
-    margin-right: 25px;
+    width: 200px;
 }
 
 /* add interview and add offer */
 .addInterviewOffer {
-    float: right;
-    margin-top: 50px;
-    margin-right: 25px;
+    float: left;
+    margin-left: 25px;
     margin-bottom: 15px;
 }
 
