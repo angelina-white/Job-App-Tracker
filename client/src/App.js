@@ -12,6 +12,7 @@ function App() {
   const [jobList, setJobList] = useState([]);
   const [interviewList, setInterviewList] = useState([]);
   const [offerList, setOfferList] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("")
 
   function fetchData()
   {
@@ -101,6 +102,13 @@ function App() {
     setOfferList([...offerList, job])
   }
 
+  const listingToDisplay = jobList.filter((item) =>
+  {
+    return (
+      item.company.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+  })
+
   return (
     <div className="App">
       <div className="titleContainer">
@@ -136,7 +144,7 @@ function App() {
               <Offer offerList={ offerList }/>
             </Route>
             <Route path="/">
-              <Home currentUserId={ currentUser.id } jobList={ jobList } handleAddJob={ handleAddJob } handleAddInterview={ handleAddInterview } deleteJob={ deleteJob } handleJobPatch={ handleJobPatch } handleAddOffer={ handleAddOffer }/>
+              <Home currentUserId={ currentUser.id } jobList={ listingToDisplay } handleAddJob={ handleAddJob } handleAddInterview={ handleAddInterview } deleteJob={ deleteJob } handleJobPatch={ handleJobPatch } handleAddOffer={ handleAddOffer } handleUserInput={ setSearchTerm } />
             </Route>
           </Switch>
         </div>

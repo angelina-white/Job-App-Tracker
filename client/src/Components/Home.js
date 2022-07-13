@@ -5,7 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { FaSearch } from 'react-icons/fa';
 
-function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, deleteJob, handleJobPatch, handleAddOffer })
+function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, deleteJob, handleJobPatch, handleAddOffer, handleUserInput })
 {
     const current = new Date();
     const currentDate = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()}`
@@ -164,7 +164,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
 
     function handleSearchInput(e)
     {
-        console.log(e.target.value)
+        handleUserInput(e.target.value)
     }
 
     return(
@@ -260,7 +260,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
                 </div>
 
                 <p id="searchIcon"><FaSearch /></p>
-                <input className="searchBar" type="text" placeholder="Search..." onChange={ handleSearchInput }/>
+                <input className="searchBar" type="text" placeholder="Search company..." onChange={ handleSearchInput }/>
 
             </div>
             <div className="jobTableBackground" >
