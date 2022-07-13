@@ -40,6 +40,7 @@ function Interview({ interviewList })
     {
         return (
             {
+                title: item.job.company,
                 start: new Date(item.year, item.month, item.day, item.hour, item.minute),
                 end: new Date(item.year, item.month, item.day, (item.hour + 2), 0),
                 isTranspo: true
