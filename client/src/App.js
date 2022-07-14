@@ -3,6 +3,7 @@ import Home from './Components/Home';
 import HomeLogin from './Components/HomeLogin';
 import Interview from './Components/Interview';
 import Offer from './Components/Offer';
+import Stats from './Components/Stats';
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import { useEffect, useState } from "react";
 import { gsap } from "gsap";
@@ -121,14 +122,17 @@ function App() {
         <div>
           <nav>
             <ul className="linksNavBar">
-              <li className="links">
+              <li className="links" id="homeLi">
                 <Link className="navText" id="homeLinkText" to="/">Home</Link>
               </li>
-              <li className="links">
+              <li className="links" id="interviewLi">
                 <Link className="navText" id="interviewLinkText" to="/interview">Interview</Link>
               </li>
-              <li className="links">
+              <li className="links" id="offerLi">
                 <Link className="navText" id="offerLinkText" to="/offer">Offer</Link>
+              </li>
+              <li className="links" id="statsLi">
+                <Link className="navText" id="statsLinkText" to="/stats">Stats</Link>
               </li>
               <li id="loggedInUsername">
                 <h5>{ currentUser.username }</h5>
@@ -145,6 +149,9 @@ function App() {
             </Route>
             <Route path="/offer">
               <Offer offerList={ offerList }/>
+            </Route>
+            <Route path="/stats">
+              <Stats />
             </Route>
             <Route path="/">
               <Home currentUserId={ currentUser.id } jobList={ listingToDisplay } handleAddJob={ handleAddJob } handleAddInterview={ handleAddInterview } deleteJob={ deleteJob } handleJobPatch={ handleJobPatch } handleAddOffer={ handleAddOffer } handleUserInput={ setSearchTerm } />

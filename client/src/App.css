@@ -98,6 +98,22 @@
     width: 100px;
 }
 
+#homeLi {
+    margin-left: 10px;
+}
+
+#interviewLi {
+    margin-left: 10px;
+}
+
+#offerLi {
+    margin-left: 10px;
+}
+
+#statsLi {
+    margin-left: -7px;
+}
+
 .navText {
     color: #30454D;
 }
@@ -130,9 +146,13 @@
     padding-left: 25px;
 }
 
+#statsLinkText {
+    padding-left: 25px;
+}
+
 #loggedInUsername {
     float: left;
-    margin-left: 960px;
+    margin-left: 850px;
     padding-top: 4px;
 }
 
