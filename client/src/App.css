@@ -213,6 +213,11 @@
     margin-top: 5px;
 }
 
+#idRadio:checked {
+    background-color:#A8BFB8;
+    border-color: #A8BFB8;
+}
+
 .dateCol {
     width: 120px;
 }
