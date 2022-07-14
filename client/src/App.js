@@ -152,10 +152,10 @@ function App() {
                 <Link className="navText" id="homeLinkText" to="/">Home</Link>
               </li>
               <li className="links" id="interviewLi">
-                <Link className="navText" id="interviewLinkText" to="/interview">Interview</Link>
+                <Link className="navText" id="interviewLinkText" to="/interview">Interviews</Link>
               </li>
               <li className="links" id="offerLi">
-                <Link className="navText" id="offerLinkText" to="/offer">Offer</Link>
+                <Link className="navText" id="offerLinkText" to="/offer">Offers</Link>
               </li>
               <li className="links" id="statsLi">
                 <Link className="navText" id="statsLinkText" to="/stats">Stats</Link>

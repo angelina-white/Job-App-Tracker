@@ -95,7 +95,7 @@
 .links {
     float: left;
     font-size: 20px;
-    width: 100px;
+    width: 125px;
 }
 
 #homeLi {
@@ -131,28 +131,28 @@
     height: 50px;
     margin-top: -10px;
     padding-top: 10px;
-    width: 100px;
+    width: 125px;
 }
 
 #homeLinkText {
-    padding-left: 23px;
+    padding-left: 35px;
 }
 
 #interviewLinkText {
-    padding-left: 10px;
+    padding-left: 17px;
 }
 
 #offerLinkText {
-    padding-left: 25px;
+    padding-left: 35px;
 }
 
 #statsLinkText {
-    padding-left: 25px;
+    padding-left: 38px;
 }
 
 #loggedInUsername {
     float: left;
-    margin-left: 850px;
+    margin-left: 750px;
     padding-top: 4px;
 }
 
