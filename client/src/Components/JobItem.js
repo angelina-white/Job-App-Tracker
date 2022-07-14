@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Route, Link } from "react-router-dom";
+import Dropdown from 'react-bootstrap/Dropdown';
 
 function JobItem({ item, deleteJob, handleJobPatch, getJobId })
 {
@@ -82,6 +82,7 @@ function JobItem({ item, deleteJob, handleJobPatch, getJobId })
     function handleStatus(e)
     {
         setNewStatus(e.target.value)
+        console.log(newStatus)
     }
 
     function selectJob()
@@ -120,7 +121,21 @@ function JobItem({ item, deleteJob, handleJobPatch, getJobId })
                 }
             </td>
             <td className="statusCol">
-                { isEdit ? <input id="statusInput" value={ newStatus } onChange={ handleStatus }/> : status }
+                { isEdit ? 
+                    // <input id="statusInput" value={ newStatus } onChange={ handleStatus }/> 
+                    <Dropdown>
+                        <Dropdown.Toggle variant="success" id="statusButton" >
+                            { newStatus }
+                        </Dropdown.Toggle>
+                
+                        <Dropdown.Menu>
+                            <Dropdown.Item as="button" value="Pending" onClick={ handleStatus }>Pending</Dropdown.Item>
+                            <Dropdown.Item as="button" value="Offer" onClick={ handleStatus }>Offer</Dropdown.Item>
+                            <Dropdown.Item as="button" value="Rejected" onClick={ handleStatus }>Rejected</Dropdown.Item>
+                            <Dropdown.Item as="button" value="Ghosted" onClick={ handleStatus }>Ghosted</Dropdown.Item>
+                        </Dropdown.Menu>
+                  </Dropdown>
+                : status }
             </td>
             <td>
                 { isEdit ? 

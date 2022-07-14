@@ -226,7 +226,7 @@
 }
 
 .statusCol {
-    width: 100px;
+    width: 120px;
 }
 
 #statusInput {
@@ -235,6 +235,12 @@
 
 #statusInput:focus {
     outline: solid 4px #E0E9FC;
+}
+
+#statusButton {
+    background-color: #E0E9FC;
+    border: #E0E9FC;
+    color: black;
 }
 
 .applicationCol {
@@ -251,11 +257,11 @@
 }
 
 .companyCol {
-    width: 200px;
+    width: 175px;
 }
 
 #companyInput {
-    width: 175px;
+    width: 160px;
 }
 
 #companyInput:focus {
