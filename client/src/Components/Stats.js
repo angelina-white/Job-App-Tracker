@@ -91,6 +91,15 @@ function Stats({ jobList })
         });
     }, [])
 
+    function MouseOver(event) 
+    {
+        event.target.style.scale = 1.05;
+    }
+
+    function MouseOut(event)
+    {
+        event.target.style.scale= 1;
+    }
 
     return (
         <div className="stats">
@@ -103,14 +112,14 @@ function Stats({ jobList })
                 
                 <div className="statsData">
                     <div className="writtenStatsBackground">
-                        <h3 id="pendingText">Pending: { pendingStatus.length }</h3>
-                        <h3 id="offerText">Offers: { offerStatus.length }</h3>
-                        <h3 id="rejectText">Rejections: {rejectedStatus.length }</h3>
-                        <h3 id="ghostText">Ghostings: {ghostedStatus.length }</h3>
+                        <h3 onMouseOver={MouseOver} onMouseOut={MouseOut} id="pendingText">Pending: { pendingStatus.length }</h3>
+                        <h3 onMouseOver={MouseOver} onMouseOut={MouseOut} id="offerText">Offers: { offerStatus.length }</h3>
+                        <h3 onMouseOver={MouseOver} onMouseOut={MouseOut} id="rejectText">Rejections: {rejectedStatus.length }</h3>
+                        <h3 onMouseOver={MouseOver} onMouseOut={MouseOut} id="ghostText">Ghostings: {ghostedStatus.length }</h3>
                     </div>
                     <div className="pieBackground">
                         <div id="statsPie">
-                            <PieChart width={400} height={400}>
+                            <PieChart width={400} height={400} >
                                 <Pie
                                     dataKey="value"
                                     data={data}
