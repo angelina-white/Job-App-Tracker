@@ -313,7 +313,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
                                     <th className="dateCol">Date</th>
                                     <th className="companyCol">Company</th>
                                     <th className="descriptionCol">Job Title</th>
-                                    <th className="applicationCol">Job Description Link</th>
+                                    <th className="applicationCol">Application Link</th>
                                     <th className="statusCol">Status</th>
                                     <th>Actions</th>
                                 </tr>

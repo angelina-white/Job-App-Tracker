@@ -207,6 +207,7 @@
 
 .applicationCol {
     width: 415px;
+    overflow-x: scroll;
 }
 
 #applicationInput {
