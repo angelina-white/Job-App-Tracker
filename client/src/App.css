@@ -38,6 +38,10 @@
     color: #3D5961;
 }
 
+#loginOutline:focus {
+    outline: solid 4px #E0E9FC;
+}
+
 #loginButton {
     margin-top: 0px;
     margin-bottom: 10px;
@@ -197,12 +201,20 @@
     width: 105px;
 }
 
+#jobDateInput:focus {
+    outline: solid 4px #E0E9FC;
+}
+
 .statusCol {
     width: 100px;
 }
 
 #statusInput {
     width: 75px;
+}
+
+#statusInput:focus {
+    outline: solid 4px #E0E9FC;
 }
 
 .applicationCol {
@@ -214,6 +226,10 @@
     width: 390px;
 }
 
+#applicationInput:focus {
+    outline: solid 4px #E0E9FC;
+}
+
 .companyCol {
     width: 200px;
 }
@@ -222,12 +238,20 @@
     width: 175px;
 }
 
+#companyInput:focus {
+    outline: solid 4px #E0E9FC;
+}
+
 .descriptionCol {
     width: 225px;
 }
 
 #descriptionInput {
     width: 200px;
+}
+
+#descriptionInput:focus {
+    outline: solid 4px #E0E9FC;
 }
 
 tr {
@@ -284,6 +308,10 @@ tr {
     margin-left: 10px;
 }
 
+.addInterviewInput:focus {
+    outline: solid 4px #E0E9FC;
+}
+
 .addDate {
     float: left;
 }
@@ -333,6 +361,10 @@ tr {
     margin-left: 10px;
 }
 
+.addOfferInput:focus {
+    outline: solid 4px #E0E9FC;
+}
+
 #addOfferSalary {
     margin-top: 10px;
 }
@@ -358,6 +390,10 @@ tr {
     font-size: 15px;
     height: 35px;
     margin-left: 10px;
+}
+
+#searchBarInput:focus {
+    outline: solid 4px #E0E9FC;
 }
 
 #jobNum {
@@ -389,7 +425,6 @@ tr {
 
 #cardHeader {
     background-color: #C8E0DD;
-
 }
 
 #deleteIcon {

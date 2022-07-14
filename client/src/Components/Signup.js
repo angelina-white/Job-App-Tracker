@@ -40,6 +40,7 @@ function Signup({ setCurrentUser, handleCloseSignup })
             <form onSubmit={handleSubmit}>
               <div className="signupInput">
                 <input
+                    id="loginOutline"
                     type="text"
                     placeholder="Username"
                     value={username}
@@ -48,6 +49,7 @@ function Signup({ setCurrentUser, handleCloseSignup })
               </div>
               <div className="signupInput">
                 <input
+                    id="loginOutline"
                     type="password"
                     placeholder="Password"
                     value={password}

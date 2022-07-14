@@ -39,6 +39,7 @@ function Login({ setCurrentUser, renderLists })
             <form onSubmit={handleLogin}>
               <div id="loginInput">
                 <input
+                    id="loginOutline"
                     type="text"
                     placeholder="Username"
                     value={username}
@@ -47,6 +48,7 @@ function Login({ setCurrentUser, renderLists })
               </div>
               <div id="loginInput">
                 <input
+                    id="loginOutline"
                     type="password"
                     placeholder="Password"
                     value={password}

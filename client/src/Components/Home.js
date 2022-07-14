@@ -302,7 +302,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
                     </div>
 
                     <p id="searchIcon"><FaSearch /></p>
-                    <input className="searchBar" type="text" placeholder="Search company..." onChange={ handleSearchInput }/>
+                    <input className="searchBar" id="searchBarInput" type="text" placeholder="Search company..." onChange={ handleSearchInput }/>
 
                 </div>
                     <div className="jobTableBackground" >
