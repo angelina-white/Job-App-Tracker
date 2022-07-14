@@ -401,7 +401,7 @@ tr {
 
 #searchIcon {
     float: left;
-    margin-left: 335px;
+    margin-left: 900px;
     margin-top: 5px;
 }
 
@@ -470,33 +470,73 @@ tr {
     margin-bottom: 25px;
 }
 
+.statsBackground {
+    height: 500px;
+    width: 1365px;
+    margin-left: 40px;
+    background-color: #F5FCFB;
+    border-radius: 15px;
+}
+
 #numContainer {
     height: 100px;
-    background-color: pink;
     padding-top: 30px;
 }
 
 .statsData {
-    margin-top: 0px;
+    margin-top: -25px;
 }
 
 .writtenStatsBackground {
     height: 430px;
     width: 500px;
-    background-color: lightblue;
     float: left;
-    padding-top: 75px;
+    padding-top: 45px;
+    margin-left: 75px;
 }
 
-#writtenStats {
+#pendingText {
+    background-color: #FCF67E;
+    width: 200px;
+    height: 50px;
+    margin-left: 150px;
+    padding-top: 7px;
+    border-radius: 4px;
+}
+
+#offerText {
+    margin-top: 35px;
+    background-color: #7EFC85;
+    width: 200px;
+    height: 50px;
+    margin-left: 150px;
+    padding-top: 7px;
+    border-radius: 4px;
+}
+
+#rejectText {
+    margin-top: 35px;
+    background-color: #FC7E91;
+    width: 200px;
+    height: 50px;
+    margin-left: 150px;
+    padding-top: 7px;
+    border-radius: 4px;
+}
+
+#ghostText {
+    margin-top: 35px;
+    background-color: #C0C2C4;
+    width: 200px;
+    height: 50px;
+    margin-left: 150px;
+    padding-top: 7px;
+    border-radius: 4px;
 }
 
 .pieBackground {
-    height: 430px;
-    width: 944px;
-    background-color: lightgreen;
     float: left;
-    padding-left: 300px;
+    padding-left: 150px;
 }
 
 #statsPie {

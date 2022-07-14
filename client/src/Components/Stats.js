@@ -50,48 +50,47 @@ function Stats({ jobList })
         { name: 'Ghosted', value: ghostedStatus.length }
         ];
 
-    const COLORS = ['#ff0000', '#FFA500', '#FFFF00', '#00FF00'];
+    const COLORS = ['#FCF67E', '#7EFC85', '#FC7E91', '#C0C2C4'];
 
 
     return (
         <div className="stats">
             <h2 id="statsTitle">Statistics</h2>
 
-            <div id="numContainer">
-                <h3>Number of applications: { jobList.length }</h3> 
-            </div>
-            
-            <div className="statsData">
-                <div className="writtenStatsBackground">
-                    <div id="writtenStats">
-                        <h3>Pending: { pendingStatus.length }</h3>
-                        <h3>Offers: { offerStatus.length }</h3>
-                        <h3>Rejections: {rejectedStatus.length }</h3>
-                        <h3>Ghostings: {ghostedStatus.length }</h3>
-                    </div>
+            <div className="statsBackground">
+                <div id="numContainer">
+                    <h4>Number of applications: { jobList.length }</h4> 
                 </div>
                 
-                <div className="pieBackground">
-                    <div id="statsPie">
-                        <PieChart width={400} height={400}>
-                            <Pie
-                                dataKey="value"
-                                data={data}
-                                isAnimationActive={false}
-                                cx="200"
-                                cy="200"
-                                label
-                                outerRadius={80}
-                                fill="#8884d8"
-                            >
-                                {data.map((entry, index) => (
-                                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                                ))}
-                            </Pie>
-                            <Tooltip />
-                        </PieChart>
+                <div className="statsData">
+                    <div className="writtenStatsBackground">
+                        <h3 id="pendingText">Pending: { pendingStatus.length }</h3>
+                        <h3 id="offerText">Offers: { offerStatus.length }</h3>
+                        <h3 id="rejectText">Rejections: {rejectedStatus.length }</h3>
+                        <h3 id="ghostText">Ghostings: {ghostedStatus.length }</h3>
                     </div>
-                </div>
+                    <div className="pieBackground">
+                        <div id="statsPie">
+                            <PieChart width={400} height={400}>
+                                <Pie
+                                    dataKey="value"
+                                    data={data}
+                                    isAnimationActive={false}
+                                    cx="200"
+                                    cy="200"
+                                    label
+                                    outerRadius={80}
+                                    fill="#8884d8"
+                                >
+                                    {data.map((entry, index) => (
+                                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                                    ))}
+                                </Pie>
+                                <Tooltip />
+                            </PieChart>
+                        </div>
+                    </div>
+                </div>       
             </div>
         </div>
     )
