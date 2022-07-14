@@ -14,12 +14,12 @@ function OfferItem({ item })
                     { findJob }
                 </Card.Header>
                 <ListGroup variant="flush">
-                    <ListGroup.Item>Salary: { salary }</ListGroup.Item>
+                    <ListGroup.Item>Salary: ${ salary }</ListGroup.Item>
                     <ListGroup.Item>Position type: { positionType }</ListGroup.Item>
                     <ListGroup.Item>Medical: { medical }</ListGroup.Item>
                     <ListGroup.Item>Vacation days: { pto }</ListGroup.Item>
                     <ListGroup.Item>Sick leave: { sickLeave }</ListGroup.Item>
-                    <ListGroup.Item>Bonus: { bonus }</ListGroup.Item>
+                    <ListGroup.Item>Bonus: ${ bonus }</ListGroup.Item>
                 </ListGroup>
             </Card>
         </li>
