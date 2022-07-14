@@ -1,4 +1,6 @@
 import { PieChart, Pie, Tooltip, Cell } from 'recharts';
+import { useEffect } from 'react'
+import { gsap } from "gsap";
 
 function Stats({ jobList })
 {
@@ -51,6 +53,41 @@ function Stats({ jobList })
         ];
 
     const COLORS = ['#FCF67E', '#7EFC85', '#FC7E91', '#C0C2C4'];
+
+    useEffect(() =>
+    {
+        gsap.from("#statsTitle", {duration: 1, opacity: 0, y: 5});
+        gsap.from("#numContainer", {delay: .25, duration: 1, opacity: 0, y: 5});
+        gsap.from(".pieBackground", {delay: .5, duration: 1, opacity: 0, y: 10});
+
+        const tl = gsap.timeline({repeat: 0});
+
+        tl.from("#pendingText", 
+        {
+          duration: .25, 
+          opacity: 0,
+          y: 25
+        });
+        
+        tl.from("#offerText", 
+        {
+          duration: .25,
+          opacity: 0,
+          y: 25
+        });
+        tl.from("#rejectText", 
+        {
+          duration: .25,
+          opacity: 0,
+          y: 25
+        });
+        tl.from("#ghostText", 
+        {
+          duration: .25,
+          opacity: 0,
+          y: 25
+        });
+    }, [])
 
 
     return (
