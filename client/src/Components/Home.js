@@ -7,7 +7,7 @@ import { FaSearch } from 'react-icons/fa';
 import PulseLoader from "react-spinners/PulseLoader";
 import { gsap } from "gsap";
 
-function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, deleteJob, handleJobPatch, handleAddOffer, handleUserInput })
+function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, deleteJob, handleJobPatch, handleAddOffer, handleUserInput, handleAddJobStatus })
 {
     const [loading, setLoading] = useState(false);
 
@@ -115,7 +115,6 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
         .then(resp => resp.json())
         .then(data => 
         {
-            console.log(data)
             handleAddInterview(data)
             setShowInterview(false)
         }) 
@@ -131,6 +130,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
         setOffer({...offer, [e.target.name]: e.target.value})
     }
 
+    const [newJobPatch, setNewJobPatch] = useState("")
     function handleSubmitOffer(e)
     {
         e.preventDefault()
@@ -157,6 +157,8 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
         .then(resp => resp.json())
         .then(data => 
         {
+            setNewJobPatch(data)
+
             const findJob = jobList.find((item) => item.id === selectedJobId)
             const jobPatchData = 
             {
@@ -164,7 +166,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
                 description: findJob.description,
                 applicationLink: findJob.applicationLink,
                 offer_id: data.id,
-                status: findJob.status,
+                status: "Offer",
                 user_id: currentUserId,
                 company: findJob.company
             }
@@ -181,8 +183,8 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
             .then(resp => resp.json())
             .then(data => 
             {
-                console.log(data)
                 handleAddOffer(data)
+                handleAddJobStatus(data)
                 setShowOffer(false)
             })
         }) 
@@ -296,9 +298,6 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
                                 </Button>
                             </Modal.Footer>
                         </Modal>
-                    </div>
-                    <div id="jobNum">
-                        <h6>Number of applications: { jobList.length }</h6>
                     </div>
 
                     <p id="searchIcon"><FaSearch /></p>

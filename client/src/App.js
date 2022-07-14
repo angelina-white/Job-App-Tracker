@@ -106,6 +106,22 @@ function App() {
     setOfferList([...offerList, job])
   }
 
+  function handleAddJobStatus(job)
+  {
+    const newJobList = jobList.map((item) =>
+    {
+      if (item.id == job.id)
+      {
+        return job
+      }
+      else
+      {
+        return item
+      }
+    })
+    setJobList(newJobList)
+  }
+
   const listingToDisplay = jobList.filter((item) =>
   {
     return (
@@ -151,10 +167,10 @@ function App() {
               <Offer offerList={ offerList }/>
             </Route>
             <Route path="/stats">
-              <Stats />
+              <Stats jobList={ jobList }/>
             </Route>
             <Route path="/">
-              <Home currentUserId={ currentUser.id } jobList={ listingToDisplay } handleAddJob={ handleAddJob } handleAddInterview={ handleAddInterview } deleteJob={ deleteJob } handleJobPatch={ handleJobPatch } handleAddOffer={ handleAddOffer } handleUserInput={ setSearchTerm } />
+              <Home currentUserId={ currentUser.id } jobList={ listingToDisplay } handleAddJob={ handleAddJob } handleAddInterview={ handleAddInterview } deleteJob={ deleteJob } handleJobPatch={ handleJobPatch } handleAddOffer={ handleAddOffer } handleUserInput={ setSearchTerm } handleAddJobStatus={ handleAddJobStatus }/>
             </Route>
           </Switch>
         </div>

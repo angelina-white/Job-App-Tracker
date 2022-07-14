@@ -416,12 +416,6 @@ tr {
     outline: solid 4px #E0E9FC;
 }
 
-#jobNum {
-    float: left;
-    margin-top: 17px;
-    margin-left: 375px;
-}
-
 /* Offers */
 .offer {
     text-align: center;
@@ -464,4 +458,47 @@ tr {
 
 #calendar {
     margin-left: 45px;
+}
+
+/* stats  */
+.stats {
+    text-align: center;
+}
+
+#statsTitle {
+    color: #3D5961;
+    margin-bottom: 25px;
+}
+
+#numContainer {
+    height: 100px;
+    background-color: pink;
+    padding-top: 30px;
+}
+
+.statsData {
+    margin-top: 0px;
+}
+
+.writtenStatsBackground {
+    height: 430px;
+    width: 500px;
+    background-color: lightblue;
+    float: left;
+    padding-top: 75px;
+}
+
+#writtenStats {
+}
+
+.pieBackground {
+    height: 430px;
+    width: 944px;
+    background-color: lightgreen;
+    float: left;
+    padding-left: 300px;
+}
+
+#statsPie {
+    scale: 125%;
 }
