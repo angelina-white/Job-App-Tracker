@@ -111,10 +111,10 @@ function Stats({ jobList })
                 
                 <div className="statsData">
                     <div className="writtenStatsBackground">
-                        <h3 onMouseOver={MouseOver} onMouseOut={MouseOut} id="pendingText">Pending: { pendingStatus.length }</h3>
-                        <h3 onMouseOver={MouseOver} onMouseOut={MouseOut} id="offerText">Offers: { offerStatus.length }</h3>
-                        <h3 onMouseOver={MouseOver} onMouseOut={MouseOut} id="rejectText">Rejections: {rejectedStatus.length }</h3>
-                        <h3 onMouseOver={MouseOver} onMouseOut={MouseOut} id="ghostText">Ghostings: {ghostedStatus.length }</h3>
+                        <h4 onMouseOver={MouseOver} onMouseOut={MouseOut} id="pendingText">Pending: { pendingStatus.length }</h4>
+                        <h4 onMouseOver={MouseOver} onMouseOut={MouseOut} id="offerText">Offers: { offerStatus.length }</h4>
+                        <h4 onMouseOver={MouseOver} onMouseOut={MouseOut} id="rejectText">Rejections: {rejectedStatus.length }</h4>
+                        <h4 onMouseOver={MouseOver} onMouseOut={MouseOut} id="ghostText">Ghostings: {ghostedStatus.length }</h4>
                     </div>
                     <div className="pieBackground">
                         <div id="statsPie">
