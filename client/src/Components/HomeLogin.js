@@ -18,21 +18,8 @@ function HomeLogin({ setCurrentUser, renderLists })
     //fades page in
     useEffect(() =>
     {
-        const tl = gsap.timeline({repeat: 0});
-
-        tl.from(".loginLeft", 
-        {
-          duration: .5, 
-          opacity: 0,
-          y: 25
-        });
-        
-        tl.from(".loginRight", 
-        {
-          duration: .5,
-          opacity: 0,
-          y: 25
-        });
+        gsap.from(".loginLeft", {duration: 1, opacity: 0, x: -25});
+        gsap.from(".loginRight", {delay: .5, duration: .5, opacity: 0, y: 25});
     }, [])
 
     return (
