@@ -301,6 +301,8 @@ tr {
 
 .applicationLink {
     color: #457F8F;
+    /* overflow-x: scroll;
+    height: 25px; */
 }
 
 .applicationLink:hover {

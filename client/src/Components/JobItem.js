@@ -116,13 +116,14 @@ function JobItem({ item, deleteJob, handleJobPatch, getJobId })
                 { isEdit ? <input id="descriptionInput" value={ newDescription } onChange={ handleDescription }/> : description }
             </td>
             <td className="applicationCol">
-                { isEdit ? <input id="applicationInput" value={ newApplicationLink } onChange={ handleApplicationLink }/> : 
+                { isEdit ? 
+                    <input id="applicationInput" value={ newApplicationLink } onChange={ handleApplicationLink }/> 
+                : 
                     <a className="applicationLink" onClick={openLink}>{ applicationLink }</a> 
                 }
             </td>
             <td className="statusCol">
                 { isEdit ? 
-                    // <input id="statusInput" value={ newStatus } onChange={ handleStatus }/> 
                     <Dropdown>
                         <Dropdown.Toggle variant="success" id="statusButton" >
                             { newStatus }
