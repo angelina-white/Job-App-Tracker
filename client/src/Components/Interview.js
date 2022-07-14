@@ -4,6 +4,8 @@ import parse from 'date-fns/parse'
 import startOfWeek from 'date-fns/startOfWeek'
 import getDay from 'date-fns/getDay'
 import enUS from 'date-fns/locale/en-US'
+import { useEffect } from 'react'
+import { gsap } from "gsap";
 
 function Interview({ interviewList })
 {
@@ -47,6 +49,11 @@ function Interview({ interviewList })
             }
         )
     })
+
+    useEffect(() =>
+    {
+        gsap.from(".interview", {duration: 1, opacity: 0, y: 10});
+    }, [])
 
     return (
         <div className="interview">

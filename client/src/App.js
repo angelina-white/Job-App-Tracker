@@ -5,6 +5,7 @@ import Interview from './Components/Interview';
 import Offer from './Components/Offer';
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import { useEffect, useState } from "react";
+import { gsap } from "gsap";
 
 function App() {
 
@@ -36,6 +37,8 @@ function App() {
           fetch(`/users/${user.id}/offers`)
           .then(resp => resp.json())
           .then(data => setOfferList(data))
+
+          gsap.from(".App", {duration: 1, opacity: 0});
         })
       }
     })

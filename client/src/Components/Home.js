@@ -5,6 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { FaSearch } from 'react-icons/fa';
 import PulseLoader from "react-spinners/PulseLoader";
+import { gsap } from "gsap";
 
 function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, deleteJob, handleJobPatch, handleAddOffer, handleUserInput })
 {
@@ -16,6 +17,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
       setTimeout(() =>
       {
         setLoading(false)
+        gsap.from("#loadedTable", {duration: 1, opacity: 0, y: 15});
       }, 2400)
     }, [])
 
@@ -198,148 +200,148 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
                 <PulseLoader font-size={"500px"} color={'#E0E9FC'} loading={ loading }/>
             </div>
             :
-            <div>
-            <div>
-                <div id="intButton">
-                    {isSelected ? 
-                        <Button variant="primary" id="addIOButton" onClick={handleShowInterview}>
-                            Add Interview
-                        </Button>
-                    :
-                        <Button variant="primary" id="addIOButtonGrey">
-                            Add Interview
-                        </Button>
-                    }
-                    <Modal show={showInterview} onHide={handleCloseInterview}>
-                        <Modal.Header closeButton>
-                            <Modal.Title id="addInterviewTitle">Add Interview</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <form>
-                                <div className="addDate">
-                                    <label className="addInterviewInputContainer">
-                                        Enter:
-                                        <input className="addInterviewInput" id="monthInput" name="month" type="text" placeholder="mm" onChange={handleChangeInterview}/>
-                                    </label>
-                                    <input className="addInterviewInput" id="dayInput" name="day" type="text" placeholder="dd" onChange={handleChangeInterview}/>
-                                    <input className="addInterviewInput" id="yearInput" name="year" type="text" placeholder="yyyy" onChange={handleChangeInterview}/>
-                                </div>
-                                <div className="addTime">
-                                    <label className="addInterviewInputContainer">
-                                        Enter:
-                                        <input className="addInterviewInput" id="hourInput" name="hour" type="text" placeholder="hh" onChange={handleChangeInterview}/>
-                                    </label>
-                                    <input className="addInterviewInput" id="minuteInput" name="minute" type="text" placeholder="mm" onChange={handleChangeInterview}/>
-                                </div>
-                            </form>
-                        </Modal.Body>
-                        <Modal.Footer>
-                        <Button variant="secondary" onClick={handleCloseInterview}>
-                            Close
-                        </Button>
-                        <Button id="addIOadd" variant="primary" onClick={handleSubmitInterview}>
-                            Add
-                        </Button>
-                        </Modal.Footer>
-                    </Modal>
-                </div>
-                <div id="offerButton">
-                    {isSelected ?
-                        <Button id="addIOButton" variant="primary" onClick={handleShowOffer}>
-                            Add Offer
-                        </Button>
-                    :
-                        <Button id="addIOButtonGrey" variant="primary">
-                            Add Offer
-                        </Button>
-                    }
-                    <Modal show={showOffer} onHide={handleCloseOffer}>
-                        <Modal.Header closeButton>
-                            <Modal.Title id="addOfferTitle">Add Offer</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <form>
-                                <label className="addOfferInputContainer" id="addOfferSalary">
-                                    Salary:
-                                    <input className="addOfferInput" name="salary" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
-                                </label>
-                                <label className="addOfferInputContainer">
-                                    Medical:
-                                    <input className="addOfferInput" name="medical" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
-                                </label>
-                                <label className="addOfferInputContainer">
-                                    Vacation days:
-                                    <input className="addOfferInput" name="pto" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
-                                </label>
-                                <label className="addOfferInputContainer">
-                                    Sick leave:
-                                    <input className="addOfferInput" name="sickLeave" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
-                                </label>
-                                <label className="addOfferInputContainer">
-                                    Bonus:
-                                    <input className="addOfferInput" name="bonus" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
-                                </label>
-                                <label className="addOfferInputContainer">
-                                    Position type:
-                                    <input className="addOfferInput" name="positionType" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
-                                </label>
-                            </form>
-                        </Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="secondary" onClick={handleCloseOffer}>
+            <div id="loadedTable">
+                <div>
+                    <div id="intButton">
+                        {isSelected ? 
+                            <Button variant="primary" id="addIOButton" onClick={handleShowInterview}>
+                                Add Interview
+                            </Button>
+                        :
+                            <Button variant="primary" id="addIOButtonGrey">
+                                Add Interview
+                            </Button>
+                        }
+                        <Modal show={showInterview} onHide={handleCloseInterview}>
+                            <Modal.Header closeButton>
+                                <Modal.Title id="addInterviewTitle">Add Interview</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                                <form>
+                                    <div className="addDate">
+                                        <label className="addInterviewInputContainer">
+                                            Enter:
+                                            <input className="addInterviewInput" id="monthInput" name="month" type="text" placeholder="mm" onChange={handleChangeInterview}/>
+                                        </label>
+                                        <input className="addInterviewInput" id="dayInput" name="day" type="text" placeholder="dd" onChange={handleChangeInterview}/>
+                                        <input className="addInterviewInput" id="yearInput" name="year" type="text" placeholder="yyyy" onChange={handleChangeInterview}/>
+                                    </div>
+                                    <div className="addTime">
+                                        <label className="addInterviewInputContainer">
+                                            Enter:
+                                            <input className="addInterviewInput" id="hourInput" name="hour" type="text" placeholder="hh" onChange={handleChangeInterview}/>
+                                        </label>
+                                        <input className="addInterviewInput" id="minuteInput" name="minute" type="text" placeholder="mm" onChange={handleChangeInterview}/>
+                                    </div>
+                                </form>
+                            </Modal.Body>
+                            <Modal.Footer>
+                            <Button variant="secondary" onClick={handleCloseInterview}>
                                 Close
                             </Button>
-                            <Button id="addIOadd" variant="primary" onClick={handleSubmitOffer}>
+                            <Button id="addIOadd" variant="primary" onClick={handleSubmitInterview}>
                                 Add
                             </Button>
-                        </Modal.Footer>
-                    </Modal>
-                </div>
-                <div id="jobNum">
-                    <h6>Number of applications: { jobList.length }</h6>
-                </div>
+                            </Modal.Footer>
+                        </Modal>
+                    </div>
+                    <div id="offerButton">
+                        {isSelected ?
+                            <Button id="addIOButton" variant="primary" onClick={handleShowOffer}>
+                                Add Offer
+                            </Button>
+                        :
+                            <Button id="addIOButtonGrey" variant="primary">
+                                Add Offer
+                            </Button>
+                        }
+                        <Modal show={showOffer} onHide={handleCloseOffer}>
+                            <Modal.Header closeButton>
+                                <Modal.Title id="addOfferTitle">Add Offer</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                                <form>
+                                    <label className="addOfferInputContainer" id="addOfferSalary">
+                                        Salary:
+                                        <input className="addOfferInput" name="salary" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
+                                    </label>
+                                    <label className="addOfferInputContainer">
+                                        Medical:
+                                        <input className="addOfferInput" name="medical" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
+                                    </label>
+                                    <label className="addOfferInputContainer">
+                                        Vacation days:
+                                        <input className="addOfferInput" name="pto" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
+                                    </label>
+                                    <label className="addOfferInputContainer">
+                                        Sick leave:
+                                        <input className="addOfferInput" name="sickLeave" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
+                                    </label>
+                                    <label className="addOfferInputContainer">
+                                        Bonus:
+                                        <input className="addOfferInput" name="bonus" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
+                                    </label>
+                                    <label className="addOfferInputContainer">
+                                        Position type:
+                                        <input className="addOfferInput" name="positionType" type="text" placeholder="Enter..." onChange={handleChangeOffer}/>
+                                    </label>
+                                </form>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <Button variant="secondary" onClick={handleCloseOffer}>
+                                    Close
+                                </Button>
+                                <Button id="addIOadd" variant="primary" onClick={handleSubmitOffer}>
+                                    Add
+                                </Button>
+                            </Modal.Footer>
+                        </Modal>
+                    </div>
+                    <div id="jobNum">
+                        <h6>Number of applications: { jobList.length }</h6>
+                    </div>
 
-                <p id="searchIcon"><FaSearch /></p>
-                <input className="searchBar" type="text" placeholder="Search company..." onChange={ handleSearchInput }/>
+                    <p id="searchIcon"><FaSearch /></p>
+                    <input className="searchBar" type="text" placeholder="Search company..." onChange={ handleSearchInput }/>
 
-            </div>
-                <div className="jobTableBackground" >
-                    <Table striped bordered hover id="jobsTable" >
-                        <thead id="jobsTableHeader">
-                            <tr>
-                                <th className="idCol">Select</th>
-                                <th className="dateCol">Date</th>
-                                <th className="companyCol">Company</th>
-                                <th className="descriptionCol">Job Title</th>
-                                <th className="applicationCol">Job Description</th>
-                                <th className="statusCol">Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody className="jobsTableBody" id="jobScroll">
-                            <tr>
-                                <td className="idCol"></td>
-                                <td className="dateCol">
-                                    { currentDate }
-                                </td>
-                                <td className="companyCol">
-                                    <input id="companyInput" name="company" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
-                                </td>
-                                <td className="descriptionCol">
-                                    <input id="descriptionInput" name="description" type="textarea" placeholder="Enter..." onChange={handleChangeJobApp}/>
-                                </td>
-                                <td className="applicationCol">
-                                    <input id="applicationInput" name="applicationLink" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
-                                </td>
-                                <td className="statusCol">Status</td>
-                                <td>
-                                    <Button onClick={handleSubmitJobApp} variant="secondary">Submit</Button>
-                                </td>
-                            </tr>
-                            { displayList }
-                        </tbody>
-                    </Table>
-                </div>       
+                </div>
+                    <div className="jobTableBackground" >
+                        <Table striped bordered hover id="jobsTable" >
+                            <thead id="jobsTableHeader">
+                                <tr>
+                                    <th className="idCol">Select</th>
+                                    <th className="dateCol">Date</th>
+                                    <th className="companyCol">Company</th>
+                                    <th className="descriptionCol">Job Title</th>
+                                    <th className="applicationCol">Job Description</th>
+                                    <th className="statusCol">Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody className="jobsTableBody" id="jobScroll">
+                                <tr>
+                                    <td className="idCol"></td>
+                                    <td className="dateCol">
+                                        { currentDate }
+                                    </td>
+                                    <td className="companyCol">
+                                        <input id="companyInput" name="company" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
+                                    </td>
+                                    <td className="descriptionCol">
+                                        <input id="descriptionInput" name="description" type="textarea" placeholder="Enter..." onChange={handleChangeJobApp}/>
+                                    </td>
+                                    <td className="applicationCol">
+                                        <input id="applicationInput" name="applicationLink" type="text" placeholder="Enter..." onChange={handleChangeJobApp}/>
+                                    </td>
+                                    <td className="statusCol">Status</td>
+                                    <td>
+                                        <Button onClick={handleSubmitJobApp} variant="secondary">Submit</Button>
+                                    </td>
+                                </tr>
+                                { displayList }
+                            </tbody>
+                        </Table>
+                    </div>       
                 </div>
                 }
         </div>

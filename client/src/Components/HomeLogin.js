@@ -4,6 +4,8 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { useState } from "react";
 import loginPhoto from '../loginPhoto.jpg';
+import { useEffect } from 'react'
+import { gsap } from "gsap";
 
 
 function HomeLogin({ setCurrentUser, renderLists })
@@ -11,6 +13,25 @@ function HomeLogin({ setCurrentUser, renderLists })
     const [showSignup, setShowSignup] = useState(false);
     const handleCloseSignup = () => setShowSignup(false);
     const handleShowSignup = () => setShowSignup(true);
+
+    useEffect(() =>
+    {
+        const tl = gsap.timeline({repeat: 0});
+
+        tl.from(".loginLeft", 
+        {
+          duration: .5, 
+          opacity: 0,
+          y: 25
+        });
+        
+        tl.from(".loginRight", 
+        {
+          duration: .5,
+          opacity: 0,
+          y: 25
+        });
+    }, [])
 
     return (
         <div className="HomeLogin">

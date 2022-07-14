@@ -1,4 +1,6 @@
 import OfferItem from "./OfferItem";
+import { useEffect } from 'react'
+import { gsap } from "gsap";
 
 function Offer({ offerList })
 {
@@ -16,6 +18,11 @@ function Offer({ offerList })
             <OfferItem item={ item } />
         )
     })
+
+    useEffect(() =>
+    {
+        gsap.from(".offer", {duration: 1, opacity: 0, y: 10});
+    }, [])
 
     return (
         <div className="offer">
