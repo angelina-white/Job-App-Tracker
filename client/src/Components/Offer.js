@@ -24,7 +24,8 @@ function Offer({ offerList })
     //fades page in
     useEffect(() =>
     {
-        gsap.from(".offer", {duration: 1, opacity: 0, y: 10});
+        gsap.from("#offersTitle", {duration: 1, opacity: 0, y: 10});
+        gsap.from(".cardUl", {delay: .3, duration: 1, opacity: 0, y: 10});
     }, [])
 
     return (

@@ -77,12 +77,14 @@ function Stats({ jobList })
           opacity: 0,
           y: 25
         });
+
         tl.from("#rejectText", 
         {
           duration: .25,
           opacity: 0,
           y: 25
         });
+        
         tl.from("#ghostText", 
         {
           duration: .25,

@@ -98,20 +98,22 @@
     width: 125px;
 }
 
-#homeLi {
-    margin-left: 10px;
+.links:hover {
+    background-color: #D8F6EC;
+    height: 50px;
+    margin-top: -10px;
+    padding-top: 10px;
+    width: 125px;
 }
 
-#interviewLi {
-    margin-left: 10px;
-}
-
-#offerLi {
-    margin-left: 10px;
-}
-
-#statsLi {
-    margin-left: -7px;
+.linkSelected {
+    float: left;
+    font-size: 20px;
+    width: 125px;
+    height: 50px;
+    padding-top: 10px;
+    margin-top: -10px;
+    background-color: #D8F6EC;
 }
 
 .navText {
@@ -124,14 +126,6 @@
 
 .navText:active{
     color: #44805A;
-}
-
-.links:hover {
-    background-color: #D8F6EC;
-    height: 50px;
-    margin-top: -10px;
-    padding-top: 10px;
-    width: 125px;
 }
 
 #homeLinkText {
@@ -160,13 +154,13 @@
     float: left;
     margin-left: 20px;
     background-color: #FCFFFE;
-    border: 2px solid #55635A;
+    border: 2px solid #97B9C2;
     transition-duration: 0.3s;
     border-radius: 4px;
 }
 
 #logoutButton:hover {
-    background-color: #55635A;
+    background-color: #97B9C2;
     color: #FCFFFE;
 }
 

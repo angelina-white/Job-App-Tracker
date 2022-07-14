@@ -56,7 +56,8 @@ function Interview({ interviewList })
     //fade in page
     useEffect(() =>
     {
-        gsap.from(".interview", {duration: 1, opacity: 0, y: 10});
+        gsap.from("#interviewTitle", {duration: 1, opacity: 0, y: 10});
+        gsap.from("#calendar", {delay: .3, duration: 1, opacity: 0, y: 10});
     }, [])
 
     return (

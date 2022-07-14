@@ -15,6 +15,10 @@ function App() {
   const [interviewList, setInterviewList] = useState([]);
   const [offerList, setOfferList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [homeSelected, setHomeSelected] = useState(true);
+  const [interviewSelected, setInterviewSelected] = useState(false);
+  const [offerSelected, setOfferSelected] = useState(false);
+  const [statsSelected, setStatsSelected] = useState(false);
 
   //fetches job list, interview list, and offers
   function fetchData()
@@ -139,6 +143,38 @@ function App() {
     )
   })
 
+  function handleSelectHome()
+  {
+    setHomeSelected(true)
+    setInterviewSelected(false)
+    setOfferSelected(false)
+    setStatsSelected(false)
+  }
+
+  function handleSelectInterviews()
+  {
+    setHomeSelected(false)
+    setInterviewSelected(true)
+    setOfferSelected(false)
+    setStatsSelected(false)
+  }
+
+  function handleSelectOffers()
+  {
+    setHomeSelected(false)
+    setInterviewSelected(false)
+    setOfferSelected(true)
+    setStatsSelected(false)
+  }
+
+  function handleSelectStats()
+  {
+    setHomeSelected(false)
+    setInterviewSelected(false)
+    setOfferSelected(false)
+    setStatsSelected(true)
+  }
+
   return (
     <div className="App">
       <div className="titleContainer">
@@ -148,18 +184,42 @@ function App() {
         <div>
           <nav>
             <ul className="linksNavBar">
-              <li className="links" id="homeLi">
-                <Link className="navText" id="homeLinkText" to="/">Home</Link>
+              { homeSelected ?
+                <li className="linkSelected">
+                  <Link className="navText" id="homeLinkText" to="/">Home</Link>
+                </li>
+              :
+                <li className="links">
+                  <Link onClick={ handleSelectHome } className="navText" id="homeLinkText" to="/">Home</Link>
+                </li>
+              }
+              { interviewSelected ?
+                <li className="linkSelected">
+                  <Link className="navText" id="interviewLinkText" to="/interview">Interviews</Link>
+                </li>
+                :
+                <li className="links">
+                  <Link onClick={ handleSelectInterviews } className="navText" id="interviewLinkText" to="/interview">Interviews</Link>
+                </li>
+              }
+              { offerSelected ?
+                <li className="linkSelected">
+                  <Link className="navText" id="offerLinkText" to="/offer">Offers</Link>
+                </li>
+              :
+                <li className="links">
+                  <Link onClick={ handleSelectOffers } className="navText" id="offerLinkText" to="/offer">Offers</Link>
+                </li>
+              }
+              { statsSelected ?
+                <li className="linkSelected">
+                  <Link className="navText" id="statsLinkText" to="/stats">Stats</Link>
+                </li>
+              :
+              <li className="links">
+                <Link onClick={ handleSelectStats } className="navText" id="statsLinkText" to="/stats">Stats</Link>
               </li>
-              <li className="links" id="interviewLi">
-                <Link className="navText" id="interviewLinkText" to="/interview">Interviews</Link>
-              </li>
-              <li className="links" id="offerLi">
-                <Link className="navText" id="offerLinkText" to="/offer">Offers</Link>
-              </li>
-              <li className="links" id="statsLi">
-                <Link className="navText" id="statsLinkText" to="/stats">Stats</Link>
-              </li>
+              }
               <li id="loggedInUsername">
                 <h5>{ currentUser.username }</h5>
               </li>
