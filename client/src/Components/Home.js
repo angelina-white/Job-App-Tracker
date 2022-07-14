@@ -17,7 +17,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
       setTimeout(() =>
       {
         setLoading(false)
-        gsap.from("#loadedTable", {duration: 1, opacity: 0, y: 15});
+        gsap.from("#loadedTable", {duration: 1, opacity: 0, y: 10});
       }, 2400)
     }, [])
 
