@@ -114,10 +114,12 @@
     padding-top: 10px;
     margin-top: -10px;
     background-color: #D8F6EC;
+    text-decoration: underline;
 }
 
 .navText {
     color: #30454D;
+    text-decoration: none;
 }
 
 .navText:hover {
