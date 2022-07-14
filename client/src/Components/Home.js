@@ -295,6 +295,9 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
                         </Modal.Footer>
                     </Modal>
                 </div>
+                <div id="jobNum">
+                    <h6>Number of applications: { jobList.length }</h6>
+                </div>
 
                 <p id="searchIcon"><FaSearch /></p>
                 <input className="searchBar" type="text" placeholder="Search company..." onChange={ handleSearchInput }/>
@@ -308,7 +311,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
                                 <th className="dateCol">Date</th>
                                 <th className="companyCol">Company</th>
                                 <th className="descriptionCol">Job Title</th>
-                                <th className="applicationCol">Application Link</th>
+                                <th className="applicationCol">Job Description</th>
                                 <th className="statusCol">Status</th>
                                 <th>Actions</th>
                             </tr>

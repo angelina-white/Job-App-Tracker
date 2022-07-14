@@ -339,7 +339,7 @@ tr {
 
 #searchIcon {
     float: left;
-    margin-left: 900px;
+    margin-left: 335px;
     margin-top: 5px;
 }
 
@@ -348,6 +348,12 @@ tr {
     font-size: 15px;
     height: 35px;
     margin-left: 10px;
+}
+
+#jobNum {
+    float: left;
+    margin-top: 17px;
+    margin-left: 375px;
 }
 
 /* Offers */

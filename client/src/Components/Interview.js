@@ -42,7 +42,7 @@ function Interview({ interviewList })
             {
                 title: item.job.company,
                 start: new Date(item.year, (item.month - 1), item.day, item.hour, item.minute),
-                end: new Date(item.year, (item.month - 1), item.day, (item.hour + 2), 0),
+                end: new Date(item.year, (item.month - 1), item.day, (item.hour + 1), (item.minute)),
                 isTranspo: true
             }
         )
