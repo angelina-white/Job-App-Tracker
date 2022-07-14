@@ -426,16 +426,12 @@ tr {
 /* Offers */
 .offer {
     text-align: center;
-}
-
-#offersTitle {
-    color: #3D5961;
-    margin-bottom: 25px;
+    padding-top: 25px;
 }
 
 .cardUl {
     list-style-type: none;
-    margin-left: 65px;
+    margin-left: 25px;
 }
 
 .cardLi {
@@ -456,11 +452,7 @@ tr {
 /* Interviews */
 .interview {
     text-align: center;
-}
-
-#interviewTitle {
-    color: #3D5961;
-    margin-bottom: 25px;
+    padding-top: 25px;
 }
 
 #calendar {
@@ -470,19 +462,16 @@ tr {
 /* stats  */
 .stats {
     text-align: center;
-}
-
-#statsTitle {
-    color: #3D5961;
-    margin-bottom: 25px;
+    padding-top: 25px;
 }
 
 .statsBackground {
-    height: 500px;
+    height: 525px;
     width: 1365px;
     margin-left: 40px;
     background-color: #F5FCFB;
     border-radius: 15px;
+    padding-top: 25px;
 }
 
 #numContainer {

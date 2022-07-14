@@ -58,7 +58,6 @@ function Stats({ jobList })
     //fade in for page
     useEffect(() =>
     {
-        gsap.from("#statsTitle", {duration: 1, opacity: 0, y: 5});
         gsap.from("#numContainer", {delay: .25, duration: 1, opacity: 0, y: 5});
         gsap.from(".pieBackground", {delay: .5, duration: 1, opacity: 0, y: 10});
 
@@ -105,8 +104,6 @@ function Stats({ jobList })
 
     return (
         <div className="stats">
-            <h2 id="statsTitle">Statistics</h2>
-
             <div className="statsBackground">
                 <div id="numContainer">
                     <h4>Number of applications: { jobList.length }</h4> 

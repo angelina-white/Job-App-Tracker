@@ -4,11 +4,11 @@ import ListGroup from 'react-bootstrap/ListGroup';
 function OfferItem({ item })
 {
     //displays offer card 
-    const {salary, medical, pto, sickLeave, bonus, positionType, jobs } = item
+    const {id, salary, medical, pto, sickLeave, bonus, positionType, jobs } = item
     const findJob = jobs.map((item) => item.company)
 
     return (
-        <li className="cardLi">
+        <li className="cardLi" id={id}>
             <Card style={{ width: '18rem' }} >
                 <Card.Header id="cardHeader">
                     { findJob }

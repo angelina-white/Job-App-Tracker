@@ -56,20 +56,18 @@ function Interview({ interviewList })
     //fade in page
     useEffect(() =>
     {
-        gsap.from("#interviewTitle", {duration: 1, opacity: 0, y: 10});
         gsap.from("#calendar", {delay: .3, duration: 1, opacity: 0, y: 10});
     }, [])
 
     return (
         <div className="interview">
-            <h2 id="interviewTitle">Interviews</h2>
             <div id="calendar">
                 <Calendar
                     localizer={localizer}
                     events={interviewEvents}
                     startAccessor="start"
                     endAccessor="end"
-                    style={{ height: 500, width: 1350 }}
+                    style={{ height: 535, width: 1350 }}
                     eventPropGetter={(eventStyleGetter)}
                 />
             </div>
