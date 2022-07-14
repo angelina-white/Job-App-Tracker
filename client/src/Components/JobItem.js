@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { Route, Link } from "react-router-dom";
 
 function JobItem({ item, deleteJob, handleJobPatch, getJobId })
 {
@@ -88,6 +89,11 @@ function JobItem({ item, deleteJob, handleJobPatch, getJobId })
         getJobId(id)
     }
 
+    const openLink = () => 
+    {
+        window.open(`${applicationLink}`);
+    };
+
     return (
         <tr>
             <td className="idCol">
@@ -109,7 +115,9 @@ function JobItem({ item, deleteJob, handleJobPatch, getJobId })
                 { isEdit ? <input id="descriptionInput" value={ newDescription } onChange={ handleDescription }/> : description }
             </td>
             <td className="applicationCol">
-                { isEdit ? <input id="applicationInput" value={ newApplicationLink } onChange={ handleApplicationLink }/> : applicationLink }
+                { isEdit ? <input id="applicationInput" value={ newApplicationLink } onChange={ handleApplicationLink }/> : 
+                    <a className="applicationLink" onClick={openLink}>{ applicationLink }</a> 
+                }
             </td>
             <td className="statusCol">
                 { isEdit ? <input id="statusInput" value={ newStatus } onChange={ handleStatus }/> : status }

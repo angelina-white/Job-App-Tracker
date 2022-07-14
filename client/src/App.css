@@ -248,6 +248,15 @@ tr {
     margin-left: -5px;
 }
 
+.applicationLink {
+    color: #457F8F;
+}
+
+.applicationLink:hover {
+    cursor: pointer; 
+    color: #435A9C;
+}
+
 /* add interview and add offer */
 #addIOButton {
     margin-right: 15px; 
