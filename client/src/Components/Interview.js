@@ -9,6 +9,7 @@ import { gsap } from "gsap";
 
 function Interview({ interviewList })
 {
+    //handles dates for calendar
     const locales = {
         'en-US': enUS,
       }
@@ -21,6 +22,7 @@ function Interview({ interviewList })
     locales,
     })
 
+    //style for calendar
     function eventStyleGetter(event, start, end, isSelected) 
     {
         var backgroundColor = "#C8E0DD"
@@ -38,6 +40,7 @@ function Interview({ interviewList })
         }
     };
 
+    //gets list of interviews for calendar
     const interviewEvents = interviewList.map((item) =>
     {
         return (
@@ -50,6 +53,7 @@ function Interview({ interviewList })
         )
     })
 
+    //fade in page
     useEffect(() =>
     {
         gsap.from(".interview", {duration: 1, opacity: 0, y: 10});

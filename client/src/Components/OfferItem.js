@@ -3,6 +3,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 function OfferItem({ item })
 {
+    //displays offer card 
     const {salary, medical, pto, sickLeave, bonus, positionType, jobs } = item
     const findJob = jobs.map((item) => item.company)
 

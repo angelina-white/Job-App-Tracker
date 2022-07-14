@@ -9,6 +9,7 @@ import { gsap } from "gsap";
 
 function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, deleteJob, handleJobPatch, handleAddOffer, handleUserInput, handleAddJobStatus })
 {
+    //loads table
     const [loading, setLoading] = useState(false);
 
     useEffect(() =>
@@ -21,9 +22,11 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
       }, 2400)
     }, [])
 
+    //gets today's date
     const current = new Date();
     const currentDate = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()}`
 
+    //gets user input for new job
     const [jobAppInput, setJobAppInput] = useState(
         {
             dateApplied: currentDate,
@@ -41,6 +44,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
         setJobAppInput({...jobAppInput, [e.target.name]: e.target.value})
     }
 
+    //adds new job to job list
     function handleSubmitJobApp(e)
     {
         fetch("/jobs", 
@@ -56,6 +60,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
         .then(data => handleAddJob(data)) 
     }
 
+    //selects job
     const [selectedJobId, setSelectedJobId] = useState("")
     const [isSelected, setIsSelected] = useState(false)
     function getJobId(id)
@@ -64,6 +69,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
         setIsSelected(true)
     }
 
+    //displays job list in table
     const displayList = jobList.map((item) =>
     {
       return (
@@ -71,6 +77,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
       )
     })
 
+    //handles adding interview to interview list
     const [showInterview, setShowInterview] = useState(false);
     const handleCloseInterview = () => setShowInterview(false);
     const handleShowInterview = () => setShowInterview(true);
@@ -120,6 +127,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
         }) 
     }
 
+    //handles adding offer list
     const [showOffer, setShowOffer] = useState(false);
     const handleCloseOffer = () => setShowOffer(false);
     const handleShowOffer = () => setShowOffer(true);
@@ -190,6 +198,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
         }) 
     }
 
+    //handles searched input
     function handleSearchInput(e)
     {
         handleUserInput(e.target.value)

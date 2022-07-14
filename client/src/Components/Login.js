@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 
 function Login({ setCurrentUser, renderLists })
 {
+    //handles user login 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState("");

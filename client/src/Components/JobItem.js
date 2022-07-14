@@ -5,9 +5,9 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 function JobItem({ item, deleteJob, handleJobPatch, getJobId })
 {
-
     const {id, offer, user, company, dateApplied, applicationLink, description, status } = item
 
+    //deletes job from job list
     function handleDelete(e)
     {
         const jobId = parseInt(e.target.value)
@@ -19,6 +19,7 @@ function JobItem({ item, deleteJob, handleJobPatch, getJobId })
             .then((data) => deleteJob(data));
     }
 
+    //edits job and sends patch to job list
     const [isEdit, setIsEdit] = useState(false)
 
     function handleEdit(e)
@@ -90,6 +91,7 @@ function JobItem({ item, deleteJob, handleJobPatch, getJobId })
         getJobId(id)
     }
 
+    //opens link in new window
     const openLink = () => 
     {
         window.open(`${applicationLink}`);

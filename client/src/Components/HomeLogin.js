@@ -10,10 +10,12 @@ import { gsap } from "gsap";
 
 function HomeLogin({ setCurrentUser, renderLists })
 {
+    //sign up modal
     const [showSignup, setShowSignup] = useState(false);
     const handleCloseSignup = () => setShowSignup(false);
     const handleShowSignup = () => setShowSignup(true);
 
+    //fades page in
     useEffect(() =>
     {
         const tl = gsap.timeline({repeat: 0});

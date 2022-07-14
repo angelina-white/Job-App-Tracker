@@ -4,7 +4,7 @@ import { gsap } from "gsap";
 
 function Stats({ jobList })
 {
-
+    //finds how many of each status
     const pendingStatus = jobList.filter((item) =>
     {
         if(item.status == "Pending")
@@ -45,6 +45,7 @@ function Stats({ jobList })
         }
     })
 
+    //data for pie chart
     const data = [
         { name: 'Pending', value: pendingStatus.length },
         { name: 'Offers', value: offerStatus.length },
@@ -54,6 +55,7 @@ function Stats({ jobList })
 
     const COLORS = ['#FCF67E', '#7EFC85', '#FC7E91', '#C0C2C4'];
 
+    //fade in for page
     useEffect(() =>
     {
         gsap.from("#statsTitle", {duration: 1, opacity: 0, y: 5});

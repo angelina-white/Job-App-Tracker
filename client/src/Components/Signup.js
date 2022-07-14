@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 
 function Signup({ setCurrentUser, handleCloseSignup })
 {
+    //handles user sign up
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState("");
@@ -32,7 +33,6 @@ function Signup({ setCurrentUser, handleCloseSignup })
           }
         })
         .then((user) => handleCloseSignup)
-        // .then((user) => console.log(user));
     }
 
     return (

@@ -16,6 +16,7 @@ function App() {
   const [offerList, setOfferList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
+  //fetches job list, interview list, and offers
   function fetchData()
   {
     fetch('/auth')
@@ -45,6 +46,7 @@ function App() {
     })
   }
 
+  //fetches data after user changes
   useEffect(() =>
   {
     fetchData()
@@ -57,6 +59,7 @@ function App() {
     fetchData()
   }
 
+  //logs user out
   function handleLogout() 
   {
     fetch("/logout", {
@@ -70,16 +73,19 @@ function App() {
     })
   }
 
+  //adds new job to job list
   function handleAddJob(item)
   {
     setJobList([item, ...jobList])
   }
 
+  //adds new interview to interview list
   function handleAddInterview(item)
   {
     setInterviewList([...interviewList, item])
   }
 
+  //deletes job from job list
   function deleteJob(jobId)
   {
     const filteredJobList = jobList.filter(item => item.id !== jobId)
@@ -89,6 +95,7 @@ function App() {
     setInterviewList(filteredInterviewList)
   }
 
+  //updates job list with new job information
   function handleJobPatch(job)
   {
     const newListing = jobList.map((item) =>
@@ -101,11 +108,13 @@ function App() {
     setJobList(newListing)
   }
 
+  //adds offer to offer list
   function handleAddOffer(job)
   {
     setOfferList([...offerList, job])
   }
 
+  //updates job list with new job status for job
   function handleAddJobStatus(job)
   {
     const newJobList = jobList.map((item) =>
@@ -122,6 +131,7 @@ function App() {
     setJobList(newJobList)
   }
 
+  //list for searched term
   const listingToDisplay = jobList.filter((item) =>
   {
     return (

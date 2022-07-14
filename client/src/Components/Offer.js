@@ -4,6 +4,7 @@ import { gsap } from "gsap";
 
 function Offer({ offerList })
 {
+    //shows offers that aren't 0
     const filteredList = offerList.filter((item) =>
     {
         if (item.salary !== 0)
@@ -12,6 +13,7 @@ function Offer({ offerList })
         }
     })
 
+    //shows offer cards
     const displayList = filteredList.map((item) =>
     {
         return (
@@ -19,6 +21,7 @@ function Offer({ offerList })
         )
     })
 
+    //fades page in
     useEffect(() =>
     {
         gsap.from(".offer", {duration: 1, opacity: 0, y: 10});
