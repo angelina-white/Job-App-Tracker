@@ -59,7 +59,7 @@ function Stats({ jobList })
     useEffect(() =>
     {
         gsap.from("#numContainer", {delay: .25, duration: 1, opacity: 0, y: 5});
-        gsap.from(".pieBackground", {delay: .5, duration: 1, opacity: 0, y: 10});
+        gsap.from(".pieBackground", {delay: .6, duration: 1, opacity: 0, y: 10});
 
         const tl = gsap.timeline({repeat: 0});
 
@@ -106,7 +106,7 @@ function Stats({ jobList })
         <div className="stats">
             <div className="statsBackground">
                 <div id="numContainer">
-                    <h4>Number of applications: { jobList.length }</h4> 
+                    <h3>Number of applications: { jobList.length }</h3> 
                 </div>
                 
                 <div className="statsData">

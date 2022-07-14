@@ -19,7 +19,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
       {
         setLoading(false)
         gsap.from("#loadedTable", {duration: 1, opacity: 0, y: 10});
-      }, 2400)
+      }, 2500)
     }, [])
 
     //gets today's date

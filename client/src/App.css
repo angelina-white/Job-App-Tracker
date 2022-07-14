@@ -1,5 +1,6 @@
 .App {
     background-color: #FCFFFE;
+    font-family: Arial;
 }
 
 /* login */
@@ -75,6 +76,7 @@
 #title {
     padding-top: 10px;
     color: #3D5961;
+    font-family: Georgia;
 }
 
 .titleContainer {
@@ -121,6 +123,7 @@
     color: #30454D;
     text-decoration: none;
     font-weight: bold;
+    font-family: Arial;
 }
 
 .navText:hover {
@@ -163,6 +166,7 @@
     border-radius: 4px;
     height: 35px;
     margin-top: -2px;
+    font-family: Arial;
 }
 
 #logoutButton:hover {
@@ -326,6 +330,7 @@ tr {
     margin-right: 15px; 
     background-color: #A4ABA9;
     border: solid 1px #A4ABA9;
+    cursor: not-allowed;
 }
 
 #addInterviewTitle {
@@ -414,7 +419,7 @@ tr {
 
 #searchIcon {
     float: left;
-    margin-left: 900px;
+    margin-left: 920px;
     margin-top: 5px;
 }
 
@@ -461,6 +466,7 @@ tr {
 .interview {
     text-align: center;
     padding-top: 25px;
+    font-family: Georgia;
 }
 
 #calendar {
@@ -480,6 +486,7 @@ tr {
     background-color: #F5FCFB;
     border-radius: 15px;
     padding-top: 25px;
+    font-family: 'Lato';
 }
 
 #numContainer {
@@ -537,6 +544,22 @@ tr {
     margin-left: 150px;
     padding-top: 10px;
     border-radius: 4px;
+}
+
+#pendingText:hover {
+    cursor: default; 
+}
+
+#offerText:hover {
+    cursor: default; 
+}
+
+#rejectText:hover {
+    cursor: default; 
+}
+
+#ghostText:hover {
+    cursor: default; 
 }
 
 .pieBackground {
