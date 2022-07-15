@@ -10,16 +10,14 @@ import { gsap } from "gsap";
 function Interview({ interviewList })
 {
     //handles dates for calendar
-    const locales = {
-        'en-US': enUS,
-      }
+    const locales = {'en-US': enUS }
       
     const localizer = dateFnsLocalizer({
-    format,
-    parse,
-    startOfWeek,
-    getDay,
-    locales,
+        format,
+        parse,
+        startOfWeek,
+        getDay,
+        locales,
     })
 
     //style for calendar

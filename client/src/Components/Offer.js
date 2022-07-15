@@ -4,17 +4,8 @@ import { gsap } from "gsap";
 
 function Offer({ offerList })
 {
-    //shows offers that aren't 0
-    const filteredList = offerList.filter((item) =>
-    {
-        if (item.salary !== 0)
-        {
-            return item
-        }
-    })
-
     //shows offer cards
-    const displayList = filteredList.map((item) =>
+    const displayList = offerList.map((item) =>
     {
         return (
             <OfferItem item={ item }/>

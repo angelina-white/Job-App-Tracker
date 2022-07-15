@@ -1,5 +1,5 @@
 class Offer < ApplicationRecord
-    has_many :jobs
+    belongs_to :job
 
     validates :salary, numericality: true
     validates :pto, numericality: true

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_13_203819) do
+ActiveRecord::Schema.define(version: 2022_07_15_210438) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,11 +29,9 @@ ActiveRecord::Schema.define(version: 2022_07_13_203819) do
     t.date "dateApplied"
     t.text "description"
     t.string "applicationLink"
-    t.bigint "offer_id"
     t.string "status"
     t.bigint "user_id"
     t.string "company"
-    t.index ["offer_id"], name: "index_jobs_on_offer_id"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
@@ -44,6 +42,8 @@ ActiveRecord::Schema.define(version: 2022_07_13_203819) do
     t.integer "sickLeave"
     t.integer "bonus"
     t.string "positionType"
+    t.bigint "job_id"
+    t.index ["job_id"], name: "index_offers_on_job_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -52,6 +52,6 @@ ActiveRecord::Schema.define(version: 2022_07_13_203819) do
   end
 
   add_foreign_key "interviews", "jobs"
-  add_foreign_key "jobs", "offers"
   add_foreign_key "jobs", "users"
+  add_foreign_key "offers", "jobs"
 end

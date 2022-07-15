@@ -118,23 +118,6 @@ function App() {
     setOfferList([...offerList, job])
   }
 
-  //updates job list with new job status for job
-  function handleAddJobStatus(job)
-  {
-    const newJobList = jobList.map((item) =>
-    {
-      if (item.id == job.id)
-      {
-        return job
-      }
-      else
-      {
-        return item
-      }
-    })
-    setJobList(newJobList)
-  }
-
   //list for searched term
   const listingToDisplay = jobList.filter((item) =>
   {
@@ -240,7 +223,7 @@ function App() {
               <Stats jobList={ jobList }/>
             </Route>
             <Route path="/">
-              <Home currentUserId={ currentUser.id } jobList={ listingToDisplay } handleAddJob={ handleAddJob } handleAddInterview={ handleAddInterview } deleteJob={ deleteJob } handleJobPatch={ handleJobPatch } handleAddOffer={ handleAddOffer } handleUserInput={ setSearchTerm } handleAddJobStatus={ handleAddJobStatus }/>
+              <Home currentUserId={ currentUser.id } jobList={ listingToDisplay } handleAddJob={ handleAddJob } handleAddInterview={ handleAddInterview } deleteJob={ deleteJob } handleJobPatch={ handleJobPatch } handleAddOffer={ handleAddOffer } handleUserInput={ setSearchTerm } />
             </Route>
           </Switch>
         </div>

@@ -59,7 +59,7 @@ function Stats({ jobList })
     useEffect(() =>
     {
         gsap.from("#numContainer", {delay: .25, duration: 1, opacity: 0, y: 5});
-        gsap.from(".pieBackground", {delay: .6, duration: 1, opacity: 0, y: 10});
+        gsap.from(".pieBackground", {delay: .60, duration: 1, opacity: 0, y: 10});
 
         const tl = gsap.timeline({repeat: 0});
 

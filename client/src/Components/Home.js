@@ -7,7 +7,7 @@ import { FaSearch } from 'react-icons/fa';
 import PulseLoader from "react-spinners/PulseLoader";
 import { gsap } from "gsap";
 
-function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, deleteJob, handleJobPatch, handleAddOffer, handleUserInput, handleAddJobStatus })
+function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, deleteJob, handleJobPatch, handleAddOffer, handleUserInput })
 {
     //loads table
     const [loading, setLoading] = useState(false);
@@ -32,7 +32,6 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
             dateApplied: currentDate,
             description: "",
             applicationLink: "",
-            offer_id: 1,
             status: "Pending",
             user_id: currentUserId,
             company: ""
@@ -138,7 +137,7 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
         setOffer({...offer, [e.target.name]: e.target.value})
     }
 
-    const [newJobPatch, setNewJobPatch] = useState("")
+    // const [newJobPatch, setNewJobPatch] = useState("")
     function handleSubmitOffer(e)
     {
         e.preventDefault()
@@ -150,7 +149,8 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
             pto: offer.pto,
             sickLeave: offer.sickLeave,
             bonus: offer.bonus,
-            positionType: offer.positionType
+            positionType: offer.positionType,
+            job_id: selectedJobId
         }
 
         fetch("/offers", 
@@ -165,36 +165,8 @@ function Home({ currentUserId, jobList, handleAddJob, handleAddInterview, delete
         .then(resp => resp.json())
         .then(data => 
         {
-            setNewJobPatch(data)
-
-            const findJob = jobList.find((item) => item.id === selectedJobId)
-            const jobPatchData = 
-            {
-                dateApplied: findJob.dateApplied,
-                description: findJob.description,
-                applicationLink: findJob.applicationLink,
-                offer_id: data.id,
-                status: "Offer",
-                user_id: currentUserId,
-                company: findJob.company
-            }
-
-            fetch(`/jobs/${selectedJobId}`,
-            {
-                method: "PATCH",
-                headers:
-                {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(jobPatchData)
-            })
-            .then(resp => resp.json())
-            .then(data => 
-            {
-                handleAddOffer(data)
-                handleAddJobStatus(data)
-                setShowOffer(false)
-            })
+            handleAddOffer(data)
+            setShowOffer(false)
         }) 
     }
 
