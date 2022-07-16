@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_15_210438) do
+ActiveRecord::Schema.define(version: 2022_07_16_170300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,9 @@ ActiveRecord::Schema.define(version: 2022_07_15_210438) do
     t.string "positionType"
     t.bigint "job_id"
     t.index ["job_id"], name: "index_offers_on_job_id"
+  end
+
+  create_table "statuses", force: :cascade do |t|
   end
 
   create_table "users", force: :cascade do |t|
